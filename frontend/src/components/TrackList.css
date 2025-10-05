@@ -1,0 +1,21 @@
+.track-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.track-list-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #888;
+  font-size: 14px;
+  text-align: center;
+  padding: 40px;
+}
+
+.track-list-empty p {
+  margin: 0;
+}

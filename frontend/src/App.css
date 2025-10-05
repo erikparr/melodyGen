@@ -1,0 +1,13 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #1a1a1a;
+  color: #e5e7eb;
+}
+
+#root {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}

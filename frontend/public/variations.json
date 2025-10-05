@@ -1,0 +1,5407 @@
+{
+  "source": "ototope-i.json",
+  "generator": "melodyGen",
+  "melodies": {
+    "bridge2a": {
+      "original": {
+        "layer1": {
+          "metadata": {
+            "durationType": "fractional",
+            "totalDuration": 2.25,
+            "key": "F",
+            "scale": "phrygian dominant"
+          },
+          "notes": [
+            {
+              "midi": 78,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 73,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 70,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 63,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 78,
+              "vel": 0.7,
+              "dur": 1
+            }
+          ],
+          "timing": [
+            0,
+            0.2222222222222222,
+            0.2222222222222222,
+            0.2222222222222222,
+            0.2222222222222222,
+            0.1111111111111111
+          ]
+        }
+      },
+      "variations": {
+        "var_01_invert_first": {
+          "method": "Invert around first note",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 2.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 83,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 86,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.1111
+            ]
+          }
+        },
+        "var_02_transpose_diatonic_down": {
+          "method": "Diatonic transpose -2 steps",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 2.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 66,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 60,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.1111
+            ]
+          }
+        },
+        "var_03_augment": {
+          "method": "Augment \u00d71.5",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 3.375,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.375
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.375
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.375
+              },
+              {
+                "midi": 63,
+                "vel": 0.7,
+                "dur": 0.375
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.375
+              }
+            ],
+            "timing": [
+              0,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.1111
+            ]
+          }
+        },
+        "var_04_invert_first": {
+          "method": "Invert around first note",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 2.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 83,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 86,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.1111
+            ]
+          }
+        },
+        "var_05_develop_sequence": {
+          "method": "Sequential development",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 63,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 66,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 69,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 61,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_06_diminish": {
+          "method": "Diminish \u00d70.5",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.125,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 63,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.125
+              }
+            ],
+            "timing": [
+              0,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.1111
+            ]
+          }
+        },
+        "var_07_invert_first": {
+          "method": "Invert around first note",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 2.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 83,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 86,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.1111
+            ]
+          }
+        },
+        "var_08_transpose_up": {
+          "method": "Transpose +4 semitones",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 2.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 74,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 67,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.1111
+            ]
+          }
+        },
+        "var_09_transpose_diatonic_down": {
+          "method": "Diatonic transpose -2 steps",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 2.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 66,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 60,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.1111
+            ]
+          }
+        },
+        "var_10_ornament_classical": {
+          "method": "Classical ornamentation",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 2.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 63,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.2222,
+              0.1111
+            ]
+          }
+        }
+      }
+    },
+    "part2a": {
+      "original": {
+        "layer1": {
+          "metadata": {
+            "durationType": "fractional",
+            "totalDuration": 8.25,
+            "key": "F",
+            "scale": "phrygian dominant"
+          },
+          "notes": [
+            {
+              "midi": 77,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 75,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 77,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 89,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 78,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 75,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 77,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 78,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 90,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 77,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 78,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 94,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 82,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 73,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 77,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 89,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 78,
+              "vel": 0.7,
+              "dur": 1
+            }
+          ],
+          "timing": [
+            0,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.06060606060606061,
+            0.030303030303030304
+          ]
+        }
+      },
+      "variations": {
+        "var_01_transpose_down": {
+          "method": "Transpose -1 semitones",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 8.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 74,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 88,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 74,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 88,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0303
+            ]
+          }
+        },
+        "var_02_develop_sequence": {
+          "method": "Sequential development",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 96,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_03_diminish": {
+          "method": "Diminish \u00d70.75",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 6.188,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 90,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 94,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.1875
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.1875
+              }
+            ],
+            "timing": [
+              0,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0303
+            ]
+          }
+        },
+        "var_04_harmonize_fifth": {
+          "method": "Harmonize at 5th",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 8.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 85,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0303
+            ]
+          }
+        },
+        "var_05_develop_sequence": {
+          "method": "Sequential development",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 96,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_06_counter_contrary": {
+          "method": "Counter melody (contrary)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 8.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 72,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0303
+            ]
+          }
+        },
+        "var_07_harmonize_third": {
+          "method": "Harmonize at 3rd",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 8.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 82,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 96,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0303
+            ]
+          }
+        },
+        "var_08_diminish": {
+          "method": "Diminish \u00d70.5",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 4.125,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 90,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 94,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.125
+              }
+            ],
+            "timing": [
+              0,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0303
+            ]
+          }
+        },
+        "var_09_ornament_jazz": {
+          "method": "Jazz ornamentation",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 8.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 74,
+                "vel": 0.42,
+                "dur": 0.1
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 88,
+                "vel": 0.42,
+                "dur": 0.1
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.42,
+                "dur": 0.1
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 76,
+                "vel": 0.42,
+                "dur": 0.1
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.42,
+                "dur": 0.1
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0485,
+              0.0121,
+              0.0606,
+              0.0485,
+              0.0121,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0485,
+              0.0121,
+              0.0606,
+              0.0485,
+              0.0121,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0485,
+              0.0121,
+              0.0303
+            ]
+          }
+        },
+        "var_10_transpose_diatonic_down": {
+          "method": "Diatonic transpose -4 steps",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 8.25,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 69,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 69,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 66,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0606,
+              0.0303
+            ]
+          }
+        }
+      }
+    },
+    "part3f": {
+      "original": {
+        "layer1": {
+          "metadata": {
+            "durationType": "fractional",
+            "totalDuration": 1.75,
+            "key": "F",
+            "scale": "phrygian dominant"
+          },
+          "notes": [
+            {
+              "midi": 72,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 87,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 82,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 72,
+              "vel": 0.7,
+              "dur": 1
+            }
+          ],
+          "timing": [
+            0,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.14285714285714285
+          ]
+        }
+      },
+      "variations": {
+        "var_01_augment": {
+          "method": "Augment \u00d72.0",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 3.5,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.5
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.5
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.5
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.5
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_02_transpose_down": {
+          "method": "Transpose -6 semitones",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 66,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 66,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_03_invert_first": {
+          "method": "Invert around first note",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 57,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 62,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_04_augment": {
+          "method": "Augment \u00d72.5",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 4.375,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.625
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_05_counter_parallel": {
+          "method": "Counter melody (parallel)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 66,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 66,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_06_transpose_diatonic_up": {
+          "method": "Diatonic transpose +4 steps",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_07_transpose_up": {
+          "method": "Transpose +5 semitones",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 92,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_08_invert_center": {
+          "method": "Invert around center",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 86,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 71,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 86,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_09_counter_contrary": {
+          "method": "Counter melody (contrary)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 66,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_10_augment": {
+          "method": "Augment \u00d71.5",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 2.625,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.375
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.375
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.375
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.375
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        }
+      }
+    },
+    "part3e": {
+      "original": {
+        "layer1": {
+          "metadata": {
+            "durationType": "fractional",
+            "totalDuration": 1.75,
+            "key": "F",
+            "scale": "phrygian dominant"
+          },
+          "notes": [
+            {
+              "midi": 70,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 85,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 84,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 70,
+              "vel": 0.7,
+              "dur": 1
+            }
+          ],
+          "timing": [
+            0,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.14285714285714285
+          ]
+        }
+      },
+      "variations": {
+        "var_01_counter_contrary": {
+          "method": "Counter melody (contrary)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 65,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_02_diminish": {
+          "method": "Diminish \u00d70.5",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 0.875,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.125
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.125
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_03_harmonize_third": {
+          "method": "Harmonize at 3rd",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 75,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_04_augment": {
+          "method": "Augment \u00d72.5",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 4.375,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.625
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_05_counter_contrary": {
+          "method": "Counter melody (contrary)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 65,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_06_ornament_jazz": {
+          "method": "Jazz ornamentation",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_07_ornament_jazz": {
+          "method": "Jazz ornamentation",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_08_counter_contrary": {
+          "method": "Counter melody (contrary)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 65,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_09_develop_sequence": {
+          "method": "Sequential development",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 69,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 69,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_10_invert_first": {
+          "method": "Invert around first note",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 55,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 56,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        }
+      }
+    },
+    "part3d": {
+      "original": {
+        "layer1": {
+          "metadata": {
+            "durationType": "fractional",
+            "totalDuration": 1.75,
+            "key": "F",
+            "scale": "phrygian dominant"
+          },
+          "notes": [
+            {
+              "midi": 72,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 87,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 85,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 72,
+              "vel": 0.7,
+              "dur": 1
+            }
+          ],
+          "timing": [
+            0,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.14285714285714285
+          ]
+        }
+      },
+      "variations": {
+        "var_01_transpose_diatonic_down": {
+          "method": "Diatonic transpose -4 steps",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 65,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 65,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        }
+      }
+    },
+    "part3c": {
+      "original": {
+        "layer1": {
+          "metadata": {
+            "durationType": "fractional",
+            "totalDuration": 1.75,
+            "key": "F",
+            "scale": "phrygian dominant"
+          },
+          "notes": [
+            {
+              "midi": 73,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 89,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 87,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 73,
+              "vel": 0.7,
+              "dur": 1
+            }
+          ],
+          "timing": [
+            0,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.14285714285714285
+          ]
+        }
+      },
+      "variations": {
+        "var_01_develop_retrograde": {
+          "method": "Retrograde",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_02_harmonize_third": {
+          "method": "Harmonize at 3rd",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 78,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_03_counter_parallel": {
+          "method": "Counter melody (parallel)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 69,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 69,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_04_counter_parallel": {
+          "method": "Counter melody (parallel)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 69,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 69,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_05_develop_retrograde": {
+          "method": "Retrograde",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_06_counter_parallel": {
+          "method": "Counter melody (parallel)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 69,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 69,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_07_develop_sequence": {
+          "method": "Sequential development",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 96,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_08_counter_parallel": {
+          "method": "Counter melody (parallel)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 69,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 69,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_09_invert_last": {
+          "method": "Invert around last note",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 57,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 59,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_10_invert_last": {
+          "method": "Invert around last note",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 57,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 59,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        }
+      }
+    },
+    "part3b": {
+      "original": {
+        "layer1": {
+          "metadata": {
+            "durationType": "fractional",
+            "totalDuration": 1.75,
+            "key": "F",
+            "scale": "phrygian dominant"
+          },
+          "notes": [
+            {
+              "midi": 72,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 85,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 87,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 72,
+              "vel": 0.7,
+              "dur": 1
+            }
+          ],
+          "timing": [
+            0,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.14285714285714285
+          ]
+        }
+      },
+      "variations": {
+        "var_01_ornament_classical": {
+          "method": "Classical ornamentation",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_02_ornament_jazz": {
+          "method": "Jazz ornamentation",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 71,
+                "vel": 0.42,
+                "dur": 0.1
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2286,
+              0.0571,
+              0.1429
+            ]
+          }
+        },
+        "var_03_harmonize_fifth": {
+          "method": "Harmonize at 5th",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 96,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_04_harmonize_third": {
+          "method": "Harmonize at 3rd",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 77,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_05_harmonize_third": {
+          "method": "Harmonize at 3rd",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 77,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_06_develop_sequence": {
+          "method": "Sequential development",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_07_counter_parallel": {
+          "method": "Counter melody (parallel)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 66,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 66,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_08_develop_sequence": {
+          "method": "Sequential development",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_09_transpose_down": {
+          "method": "Transpose -1 semitones",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 71,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 86,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 71,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_10_harmonize_fifth": {
+          "method": "Harmonize at 5th",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 96,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        }
+      }
+    },
+    "part3a": {
+      "original": {
+        "layer1": {
+          "metadata": {
+            "durationType": "fractional",
+            "totalDuration": 1.75,
+            "key": "F",
+            "scale": "phrygian dominant"
+          },
+          "notes": [
+            {
+              "midi": 70,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 85,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 84,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 70,
+              "vel": 0.7,
+              "dur": 1
+            }
+          ],
+          "timing": [
+            0,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.2857142857142857,
+            0.14285714285714285
+          ]
+        }
+      },
+      "variations": {
+        "var_01_counter_parallel": {
+          "method": "Counter melody (parallel)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 65,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 65,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        },
+        "var_02_counter_parallel": {
+          "method": "Counter melody (parallel)",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 1.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 65,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              },
+              {
+                "midi": 65,
+                "vel": 0.5599999999999999,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.2857,
+              0.2857,
+              0.2857,
+              0.1429
+            ]
+          }
+        }
+      }
+    },
+    "part3x": {
+      "original": {
+        "layer1": {
+          "metadata": {
+            "durationType": "fractional",
+            "totalDuration": 7.75,
+            "key": "F",
+            "scale": "phrygian dominant"
+          },
+          "notes": [
+            {
+              "midi": 70,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 85,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 72,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 87,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 73,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 89,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 75,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 87,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 75,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 85,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 70,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 84,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 72,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 82,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 70,
+              "vel": 0.7,
+              "dur": 0.5
+            },
+            {
+              "midi": 85,
+              "vel": 0.7,
+              "dur": 1
+            }
+          ],
+          "timing": [
+            0,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.06451612903225806,
+            0.03225806451612903
+          ]
+        }
+      },
+      "variations": {
+        "var_01_invert_last": {
+          "method": "Invert around last note",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 100,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 98,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 83,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 97,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 95,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 83,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 95,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 100,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 86,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 98,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 88,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 100,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_02_harmonize_third": {
+          "method": "Harmonize at 3rd",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 75,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_03_augment": {
+          "method": "Augment \u00d72.5",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 19.375,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.625
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.625
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_04_harmonize_fifth": {
+          "method": "Harmonize at 5th",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 78,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 96,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 96,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_05_harmonize_third": {
+          "method": "Harmonize at 3rd",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 75,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_06_develop_retrograde": {
+          "method": "Retrograde",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 75,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 73,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 87,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 72,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 70,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_07_harmonize_fifth": {
+          "method": "Harmonize at 5th",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 78,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 96,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 82,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 96,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 84,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.595,
+                "dur": 0.25
+              },
+              {
+                "midi": 94,
+                "vel": 0.595,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_08_invert_last": {
+          "method": "Invert around last note",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 100,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 98,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 83,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 97,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 95,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 83,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 95,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 100,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 86,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 98,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 88,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 100,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 85,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_09_transpose_up": {
+          "method": "Transpose +4 semitones",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 74,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 91,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 77,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 79,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 91,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 79,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 74,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 88,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 86,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 74,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 89,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        },
+        "var_10_transpose_up": {
+          "method": "Transpose +6 semitones",
+          "layer1": {
+            "metadata": {
+              "durationType": "absolute",
+              "totalDuration": 7.75,
+              "key": "F",
+              "scale": "phrygian dominant"
+            },
+            "notes": [
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 91,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 79,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 95,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 93,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 81,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 91,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 90,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 78,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 88,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 76,
+                "vel": 0.7,
+                "dur": 0.25
+              },
+              {
+                "midi": 91,
+                "vel": 0.7,
+                "dur": 0.25
+              }
+            ],
+            "timing": [
+              0,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0645,
+              0.0323
+            ]
+          }
+        }
+      }
+    }
+  }
+}

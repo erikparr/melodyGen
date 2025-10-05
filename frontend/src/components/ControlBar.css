@@ -1,0 +1,74 @@
+.control-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #151515;
+  border-bottom: 1px solid #333;
+  min-height: 60px;
+}
+
+.control-bar-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.control-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.control-button.primary {
+  background: #2563eb;
+  color: white;
+}
+
+.control-button.primary:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.control-button.secondary {
+  background: #374151;
+  color: #e5e7eb;
+}
+
+.control-button.secondary:hover:not(:disabled) {
+  background: #4b5563;
+}
+
+.control-button.action {
+  background: #10b981;
+  color: white;
+}
+
+.control-button.action:hover:not(:disabled) {
+  background: #059669;
+}
+
+.selection-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.selection-count {
+  color: #10b981;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.selection-count-empty {
+  color: #6b7280;
+  font-size: 14px;
+}
