@@ -7,6 +7,7 @@ function TrackList() {
   const tracks = useMelodyStore((state) => state.tracks);
   const selectedMelodies = useMelodyStore((state) => state.selectedMelodies);
   const toggleMelody = useMelodyStore((state) => state.toggleMelody);
+  const loop = useMelodyStore((state) => state.loop);
 
   if (!tracks || tracks.length === 0) {
     return (
@@ -18,14 +19,16 @@ function TrackList() {
 
   return (
     <div className="track-list">
-      {tracks.map((track) => (
+      {tracks.map((track, index) => (
         <Track
           key={track.id}
           trackId={track.id}
           trackName={track.name}
+          trackIndex={index}
           melodies={track.melodies || []}
           selectedMelodies={selectedMelodies}
           onMelodyClick={toggleMelody}
+          loop={loop}
         />
       ))}
     </div>

@@ -4,9 +4,12 @@ export const useMelodyStore = create((set, get) => ({
   // Data
   tracks: [],
   selectedMelodies: [],
+  loop: false,  // Global loop setting, default OFF
 
   // Actions
   setTracks: (tracks) => set({ tracks }),
+
+  setLoop: (loop) => set({ loop }),
 
   selectMelody: (trackId, melodyId) => {
     const { selectedMelodies } = get();

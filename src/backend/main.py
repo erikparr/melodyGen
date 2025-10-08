@@ -7,6 +7,7 @@ from music21 import stream, note, tempo, meter, duration
 import json
 import tempfile
 import os
+from pythonosc import udp_client
 
 from transformations import MusicTransformer
 from variations import VariationGenerator
@@ -17,11 +18,14 @@ app = FastAPI(title="MelodyGen API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", "http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# OSC client for SuperCollider
+osc_client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
 
 # Pydantic models
 
@@ -56,6 +60,23 @@ class ValidateRequest(BaseModel):
     check_cadence: bool = True
     check_range: bool = True
     reference_range: Optional[List[int]] = None
+
+class OSCNote(BaseModel):
+    midi: int
+    vel: float
+    dur: float
+
+class OSCMetadata(BaseModel):
+    totalDuration: float
+    noteCount: int
+    name: str
+    key: Optional[str] = None
+    scale: Optional[str] = None
+
+class OSCMelodyRequest(BaseModel):
+    layer: int  # 1, 2, or 3
+    notes: List[Dict]  # Accept raw dicts from frontend
+    metadata: Dict  # Accept raw dict from frontend
 
 # Endpoints
 
@@ -297,6 +318,47 @@ async def import_midi_seed(file: UploadFile = File(...)):
             if os.path.exists(tmp_path):
                 os.unlink(tmp_path)
             raise e
+
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+@app.post("/osc/send-melody")
+def send_melody_to_supercollider(request: OSCMelodyRequest):
+    """
+    Send melody to SuperCollider via OSC.
+
+    Sends to /liveMelody/update/layer[1-3] with JSON payload.
+    Format: {notes: [{midi, vel, dur}, ...], metadata: {...}}
+    """
+    try:
+        if request.layer < 1 or request.layer > 3:
+            return {"success": False, "error": "Layer must be 1, 2, or 3"}
+
+        # Create OSC address (layer is part of the address)
+        osc_address = f"/liveMelody/update/layer{request.layer}"
+
+        # Build the OSC payload (notes and metadata at top level)
+        osc_payload = {
+            "notes": request.notes,
+            "metadata": request.metadata
+        }
+
+        # Convert to JSON string
+        json_payload = json.dumps(osc_payload)
+
+        # DEBUG: Print what we're sending
+        print(f"🎵 Sending OSC to {osc_address}")
+        print(f"Payload: {json.dumps(osc_payload, indent=2)}")
+
+        # Send OSC message
+        osc_client.send_message(osc_address, json_payload)
+
+        return {
+            "success": True,
+            "layer": request.layer,
+            "address": osc_address,
+            "note_count": len(request.notes)
+        }
 
     except Exception as e:
         return {"success": False, "error": str(e)}
