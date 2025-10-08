@@ -26,14 +26,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Startup event to start background broadcaster
+@app.on_event("startup")
+async def startup_event():
+    """Start background tasks on app startup."""
+    asyncio.create_task(broadcast_pending_events())
+    print("📡 Started WebSocket broadcast task")
+
 # OSC client for sending to SuperCollider
 osc_client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
 
 # Store completion events for polling
 completion_events = []
 
-# WebSocket connections
+# WebSocket connections and pending events
 active_websockets: Set[WebSocket] = set()
+pending_events = []
 
 # OSC message handler for melody completion
 def handle_melody_complete(address, layer_number):
@@ -49,29 +57,35 @@ def handle_melody_complete(address, layer_number):
         "timestamp": __import__('time').time()
     }
     completion_events.append(event)
+    pending_events.append(event)
 
     # Keep only last 100 events to prevent memory leak
     if len(completion_events) > 100:
         completion_events.pop(0)
 
-    # Notify all connected WebSocket clients
-    asyncio.run(broadcast_completion(event))
+# Background task to broadcast pending events
+async def broadcast_pending_events():
+    """Continuously broadcast pending events to WebSocket clients."""
+    while True:
+        if pending_events and active_websockets:
+            # Get all pending events
+            events_to_send = pending_events.copy()
+            pending_events.clear()
 
-# Broadcast completion event to all WebSocket clients
-async def broadcast_completion(event):
-    """Send completion event to all connected WebSocket clients."""
-    if not active_websockets:
-        return
+            # Broadcast to all connected clients
+            disconnected = set()
+            for event in events_to_send:
+                for websocket in list(active_websockets):
+                    try:
+                        await websocket.send_json(event)
+                    except Exception as e:
+                        print(f"WebSocket send error: {e}")
+                        disconnected.add(websocket)
 
-    disconnected = set()
-    for websocket in active_websockets:
-        try:
-            await websocket.send_json(event)
-        except Exception:
-            disconnected.add(websocket)
+            # Remove disconnected clients
+            active_websockets.difference_update(disconnected)
 
-    # Remove disconnected clients
-    active_websockets.difference_update(disconnected)
+        await asyncio.sleep(0.01)  # Check every 10ms
 
 # Setup OSC server to receive messages from SuperCollider
 def start_osc_server():
