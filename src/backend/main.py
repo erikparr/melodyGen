@@ -1,13 +1,15 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 from pydantic import BaseModel
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Set
 from music21 import stream, note, tempo, meter, duration
 import json
 import tempfile
 import os
-from pythonosc import udp_client
+import threading
+import asyncio
+from pythonosc import udp_client, dispatcher, osc_server
 
 from transformations import MusicTransformer
 from variations import VariationGenerator
@@ -24,8 +26,67 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# OSC client for SuperCollider
+# OSC client for sending to SuperCollider
 osc_client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
+
+# Store completion events for polling
+completion_events = []
+
+# WebSocket connections
+active_websockets: Set[WebSocket] = set()
+
+# OSC message handler for melody completion
+def handle_melody_complete(address, layer_number):
+    """
+    Handle OSC completion message from SuperCollider.
+    Expected: /liveMelody/complete [layer_number]
+    """
+    print(f"✅ Melody completed on layer {layer_number}")
+
+    # Store the completion event
+    event = {
+        "layer": layer_number,
+        "timestamp": __import__('time').time()
+    }
+    completion_events.append(event)
+
+    # Keep only last 100 events to prevent memory leak
+    if len(completion_events) > 100:
+        completion_events.pop(0)
+
+    # Notify all connected WebSocket clients
+    asyncio.run(broadcast_completion(event))
+
+# Broadcast completion event to all WebSocket clients
+async def broadcast_completion(event):
+    """Send completion event to all connected WebSocket clients."""
+    if not active_websockets:
+        return
+
+    disconnected = set()
+    for websocket in active_websockets:
+        try:
+            await websocket.send_json(event)
+        except Exception:
+            disconnected.add(websocket)
+
+    # Remove disconnected clients
+    active_websockets.difference_update(disconnected)
+
+# Setup OSC server to receive messages from SuperCollider
+def start_osc_server():
+    """Start OSC server in background thread to listen for completion messages."""
+    disp = dispatcher.Dispatcher()
+    disp.map("/liveMelody/complete", handle_melody_complete)
+
+    server = osc_server.ThreadingOSCUDPServer(("127.0.0.1", 7001), disp)
+    print("🎧 OSC Server listening on 127.0.0.1:7001 for SuperCollider completion messages")
+
+    server.serve_forever()
+
+# Start OSC receiver in background thread
+osc_thread = threading.Thread(target=start_osc_server, daemon=True)
+osc_thread.start()
 
 # Pydantic models
 
@@ -89,9 +150,57 @@ def read_root():
             "variations": "/variation/generate",
             "interpolation": "/variation/interpolate",
             "validation": "/variation/validate",
-            "export": "/variation/export-midi"
+            "export": "/variation/export-midi",
+            "osc_send": "/osc/send-melody",
+            "osc_completions": "/osc/completions"
         }
     }
+
+@app.get("/osc/completions")
+def get_completion_events(since: Optional[float] = None):
+    """
+    Get melody completion events from SuperCollider.
+
+    Query params:
+    - since: timestamp (float) - only return events after this time
+
+    Returns:
+    - events: list of completion events with layer and timestamp
+    """
+    if since is None:
+        # Return all events
+        return {
+            "success": True,
+            "events": completion_events
+        }
+    else:
+        # Return only events after the given timestamp
+        filtered = [e for e in completion_events if e["timestamp"] > since]
+        return {
+            "success": True,
+            "events": filtered
+        }
+
+@app.websocket("/ws/completions")
+async def websocket_completions(websocket: WebSocket):
+    """
+    WebSocket endpoint for real-time melody completion notifications.
+
+    Clients connect to this endpoint and receive completion events
+    as they happen from SuperCollider.
+    """
+    await websocket.accept()
+    active_websockets.add(websocket)
+    print(f"🔌 WebSocket client connected (total: {len(active_websockets)})")
+
+    try:
+        # Keep connection alive and wait for client disconnect
+        while True:
+            # Just wait for messages (we don't expect any from client)
+            await websocket.receive_text()
+    except WebSocketDisconnect:
+        active_websockets.discard(websocket)
+        print(f"🔌 WebSocket client disconnected (total: {len(active_websockets)})")
 
 @app.post("/variation/generate")
 def generate_variations(request: VariationRequest):

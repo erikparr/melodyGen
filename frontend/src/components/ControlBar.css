@@ -56,6 +56,15 @@
   background: #059669;
 }
 
+.control-button.sequencer {
+  background: #8b5cf6;
+  color: white;
+}
+
+.control-button.sequencer:hover:not(:disabled) {
+  background: #7c3aed;
+}
+
 .control-button.loop-toggle {
   width: 40px;
   height: 40px;

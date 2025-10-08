@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useMelodyStore } from '../store/melodyStore';
 import { sendMelodyToLayer } from '../utils/oscSender';
+import { useSequencer } from '../hooks/useSequencer';
 import './ControlBar.css';
 
 function ControlBar() {
@@ -12,6 +13,9 @@ function ControlBar() {
   const setLoop = useMelodyStore((state) => state.setLoop);
   const tracks = useMelodyStore((state) => state.tracks);
   const [sending, setSending] = useState(false);
+
+  // Sequencer hook
+  const sequencer = useSequencer();
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
@@ -128,9 +132,20 @@ function ControlBar() {
         <button
           className="control-button action"
           onClick={handlePlayAll}
-          disabled={selectedMelodies.length === 0 || sending}
+          disabled={selectedMelodies.length === 0 || sending || sequencer.isPlaying}
         >
           {sending ? '⏳ Sending...' : `▶ Play All (${selectedMelodies.length})`}
+        </button>
+        <button
+          className="control-button sequencer"
+          onClick={sequencer.isPlaying ? sequencer.stop : sequencer.start}
+          disabled={selectedMelodies.length === 0}
+          title={sequencer.isPlaying ? 'Stop sequence' : 'Play sequence (one-shot mode)'}
+        >
+          {sequencer.isPlaying
+            ? `⏹ Stop (${sequencer.currentIndex + 1}/${sequencer.playlist.length})`
+            : `⏭ Sequence (${selectedMelodies.length})`
+          }
         </button>
       </div>
     </div>
