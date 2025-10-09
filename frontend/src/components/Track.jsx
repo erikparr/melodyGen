@@ -3,7 +3,7 @@ import MelodyCard from './MelodyCard';
 import { sendMelodyToLayer } from '../utils/oscSender';
 import './Track.css';
 
-export default function Track({ trackId, trackName, melodies, selectedMelodies, onMelodyClick, trackIndex, loop }) {
+export default function Track({ trackId, trackName, melodies, selectedMelodies, onMelodyClick, trackIndex, loop, fixedLayer }) {
   const [sending, setSending] = useState(false);
 
   // Get the most recently selected melody for this track
@@ -15,15 +15,15 @@ export default function Track({ trackId, trackName, melodies, selectedMelodies, 
     return melodies.find(m => m.id === lastSelection.melodyId);
   };
 
+  // Use fixedLayer if provided, otherwise auto-assign based on track index
+  const layer = fixedLayer || ((trackIndex) % 3) + 1;
+
   const handlePlay = async () => {
     const selectedMelody = getSelectedMelody();
     if (!selectedMelody || sending) return;
 
     setSending(true);
     try {
-      // Auto-assign layer based on track index (1-indexed, wrap around if > 3)
-      const layer = ((trackIndex) % 3) + 1;
-
       await sendMelodyToLayer(selectedMelody, layer, loop);
       console.log(`Sent ${selectedMelody.name} to layer ${layer} (loop: ${loop})`);
     } catch (error) {
@@ -36,7 +36,6 @@ export default function Track({ trackId, trackName, melodies, selectedMelodies, 
 
   const selectedMelody = getSelectedMelody();
   const hasSelection = selectedMelody !== null;
-  const layer = ((trackIndex) % 3) + 1;
 
   return (
     <div className="track">

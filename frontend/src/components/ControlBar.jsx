@@ -12,6 +12,10 @@ function ControlBar() {
   const loop = useMelodyStore((state) => state.loop);
   const setLoop = useMelodyStore((state) => state.setLoop);
   const tracks = useMelodyStore((state) => state.tracks);
+  const importMode = useMelodyStore((state) => state.importMode);
+  const setImportMode = useMelodyStore((state) => state.setImportMode);
+  const targetLayer = useMelodyStore((state) => state.targetLayer);
+  const setTargetLayer = useMelodyStore((state) => state.setTargetLayer);
   const [sending, setSending] = useState(false);
 
   // Sequencer hook
@@ -99,6 +103,39 @@ function ControlBar() {
           onChange={handleFileUpload}
           style={{ display: 'none' }}
         />
+        <div className="import-mode-selector">
+          <label className="import-mode-label">
+            <input
+              type="radio"
+              name="importMode"
+              value="multi-track"
+              checked={importMode === 'multi-track'}
+              onChange={(e) => setImportMode(e.target.value)}
+            />
+            <span>Multi-Track</span>
+          </label>
+          <label className="import-mode-label">
+            <input
+              type="radio"
+              name="importMode"
+              value="single-track"
+              checked={importMode === 'single-track'}
+              onChange={(e) => setImportMode(e.target.value)}
+            />
+            <span>Single Track →</span>
+          </label>
+          {importMode === 'single-track' && (
+            <select
+              className="layer-select"
+              value={targetLayer}
+              onChange={(e) => setTargetLayer(Number(e.target.value))}
+            >
+              <option value={1}>Layer 1</option>
+              <option value={2}>Layer 2</option>
+              <option value={3}>Layer 3</option>
+            </select>
+          )}
+        </div>
       </div>
 
       <div className="control-bar-section">

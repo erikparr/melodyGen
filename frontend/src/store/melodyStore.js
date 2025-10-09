@@ -5,11 +5,17 @@ export const useMelodyStore = create((set, get) => ({
   tracks: [],
   selectedMelodies: [],
   loop: false,  // Global loop setting, default OFF
+  importMode: 'multi-track',  // 'multi-track' | 'single-track'
+  targetLayer: 1,  // For single-track mode: 1, 2, or 3
 
   // Actions
   setTracks: (tracks) => set({ tracks }),
 
   setLoop: (loop) => set({ loop }),
+
+  setImportMode: (mode) => set({ importMode: mode }),
+
+  setTargetLayer: (layer) => set({ targetLayer: layer }),
 
   selectMelody: (trackId, melodyId) => {
     const { selectedMelodies } = get();
@@ -49,6 +55,8 @@ export const useMelodyStore = create((set, get) => ({
 
   // Load data from JSON
   loadFromJSON: (jsonData) => {
+    const { importMode, targetLayer } = get();
+    const allMelodies = [];
     const tracks = [];
 
     if (jsonData.melodies) {
@@ -88,18 +96,36 @@ export const useMelodyStore = create((set, get) => ({
           });
         }
 
-        if (melodies.length > 0) {
-          tracks.push({
-            id: melodyName,
-            name: melodyName,
-            melodies
-          });
+        if (importMode === 'single-track') {
+          // Collect all melodies for single track
+          allMelodies.push(...melodies);
+        } else {
+          // Multi-track mode: each melody gets its own track
+          if (melodies.length > 0) {
+            tracks.push({
+              id: melodyName,
+              name: melodyName,
+              melodies
+            });
+          }
         }
       });
     }
 
-    // Limit to 5 tracks max
-    set({ tracks: tracks.slice(0, 5) });
+    if (importMode === 'single-track' && allMelodies.length > 0) {
+      // Create one track with all melodies
+      set({
+        tracks: [{
+          id: 'merged-track',
+          name: `All Melodies (Layer ${targetLayer})`,
+          melodies: allMelodies,
+          fixedLayer: targetLayer
+        }]
+      });
+    } else {
+      // Multi-track mode: limit to 5 tracks max
+      set({ tracks: tracks.slice(0, 5) });
+    }
   }
 }));
 

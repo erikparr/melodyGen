@@ -29,6 +29,7 @@ function TrackList() {
           selectedMelodies={selectedMelodies}
           onMelodyClick={toggleMelody}
           loop={loop}
+          fixedLayer={track.fixedLayer}
         />
       ))}
     </div>
