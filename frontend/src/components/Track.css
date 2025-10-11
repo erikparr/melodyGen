@@ -6,6 +6,8 @@
   overflow: hidden;
   border-bottom: 1px solid #222;
   min-height: 0;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .track-header {
@@ -16,6 +18,9 @@
   background: #151515;
   border-bottom: 1px solid #222;
   flex-shrink: 0;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .track-name {
@@ -94,6 +99,8 @@
   white-space: nowrap;
   flex: 1;
   min-height: 0;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .track-content::-webkit-scrollbar {

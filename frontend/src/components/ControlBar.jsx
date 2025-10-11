@@ -8,7 +8,6 @@ function ControlBar() {
   const fileInputRef = useRef(null);
   const loadFromJSON = useMelodyStore((state) => state.loadFromJSON);
   const selectedMelodies = useMelodyStore((state) => state.selectedMelodies);
-  const clearSelection = useMelodyStore((state) => state.clearSelection);
   const loop = useMelodyStore((state) => state.loop);
   const setLoop = useMelodyStore((state) => state.setLoop);
   const tracks = useMelodyStore((state) => state.tracks);
@@ -40,10 +39,6 @@ function ControlBar() {
 
   const handleLoadClick = () => {
     fileInputRef.current?.click();
-  };
-
-  const handleClearSelection = () => {
-    clearSelection();
   };
 
   const handlePlayAll = async () => {
@@ -134,26 +129,6 @@ function ControlBar() {
               <option value={2}>Layer 2</option>
               <option value={3}>Layer 3</option>
             </select>
-          )}
-        </div>
-      </div>
-
-      <div className="control-bar-section">
-        <div className="selection-info">
-          {selectedMelodies.length > 0 ? (
-            <>
-              <span className="selection-count">
-                {selectedMelodies.length} selected
-              </span>
-              <button
-                className="control-button secondary"
-                onClick={handleClearSelection}
-              >
-                Clear Selection
-              </button>
-            </>
-          ) : (
-            <span className="selection-count-empty">No selection</span>
           )}
         </div>
       </div>

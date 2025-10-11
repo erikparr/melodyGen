@@ -5,7 +5,7 @@ export const useMelodyStore = create((set, get) => ({
   tracks: [],
   selectedMelodies: [],
   loop: false,  // Global loop setting, default OFF
-  importMode: 'multi-track',  // 'multi-track' | 'single-track'
+  importMode: 'single-track',  // 'multi-track' | 'single-track'
   targetLayer: 1,  // For single-track mode: 1, 2, or 3
 
   // Actions
@@ -53,11 +53,69 @@ export const useMelodyStore = create((set, get) => ({
 
   clearSelection: () => set({ selectedMelodies: [] }),
 
+  selectAll: () => {
+    const { tracks } = get();
+    const allSelections = [];
+    tracks.forEach(track => {
+      track.melodies.forEach(melody => {
+        allSelections.push({ trackId: track.id, melodyId: melody.id });
+      });
+    });
+    set({ selectedMelodies: allSelections });
+  },
+
+  deleteMelodies: () => {
+    const { tracks, selectedMelodies } = get();
+    const newTracks = tracks.map(track => ({
+      ...track,
+      melodies: track.melodies.filter(melody =>
+        !selectedMelodies.some(sel => sel.trackId === track.id && sel.melodyId === melody.id)
+      )
+    })).filter(track => track.melodies.length > 0);
+
+    set({ tracks: newTracks, selectedMelodies: [] });
+  },
+
+  moveToNewLayer: () => {
+    const { tracks, selectedMelodies, targetLayer } = get();
+
+    if (selectedMelodies.length === 0) return;
+
+    // Collect selected melodies
+    const melodies = [];
+    selectedMelodies.forEach(sel => {
+      const track = tracks.find(t => t.id === sel.trackId);
+      if (track) {
+        const melody = track.melodies.find(m => m.id === sel.melodyId);
+        if (melody) {
+          melodies.push(melody);
+        }
+      }
+    });
+
+    // Create new track with selected melodies
+    const newTrackId = `layer-${targetLayer}-${Date.now()}`;
+    const newTrack = {
+      id: newTrackId,
+      name: `Layer ${targetLayer} (Moved)`,
+      melodies: melodies,
+      fixedLayer: targetLayer
+    };
+
+    // Add new track and select its melodies
+    const newSelection = melodies.map(m => ({ trackId: newTrackId, melodyId: m.id }));
+    set({
+      tracks: [...tracks, newTrack],
+      selectedMelodies: newSelection
+    });
+  },
+
   // Load data from JSON
   loadFromJSON: (jsonData) => {
     const { importMode, targetLayer } = get();
     const allMelodies = [];
     const tracks = [];
+    const selectedMelodies = [];
 
     if (jsonData.melodies) {
       Object.entries(jsonData.melodies).forEach(([melodyName, melodyData]) => {
@@ -102,10 +160,15 @@ export const useMelodyStore = create((set, get) => ({
         } else {
           // Multi-track mode: each melody gets its own track
           if (melodies.length > 0) {
+            const trackId = melodyName;
             tracks.push({
-              id: melodyName,
+              id: trackId,
               name: melodyName,
               melodies
+            });
+            // Select all melodies in this track
+            melodies.forEach(melody => {
+              selectedMelodies.push({ trackId, melodyId: melody.id });
             });
           }
         }
@@ -114,17 +177,27 @@ export const useMelodyStore = create((set, get) => ({
 
     if (importMode === 'single-track' && allMelodies.length > 0) {
       // Create one track with all melodies
+      const trackId = 'merged-track';
+      const newTrack = {
+        id: trackId,
+        name: `All Melodies (Layer ${targetLayer})`,
+        melodies: allMelodies,
+        fixedLayer: targetLayer
+      };
+      // Select all melodies in single track
+      allMelodies.forEach(melody => {
+        selectedMelodies.push({ trackId, melodyId: melody.id });
+      });
       set({
-        tracks: [{
-          id: 'merged-track',
-          name: `All Melodies (Layer ${targetLayer})`,
-          melodies: allMelodies,
-          fixedLayer: targetLayer
-        }]
+        tracks: [newTrack],
+        selectedMelodies
       });
     } else {
       // Multi-track mode: limit to 5 tracks max
-      set({ tracks: tracks.slice(0, 5) });
+      set({
+        tracks: tracks.slice(0, 5),
+        selectedMelodies: selectedMelodies.slice(0, 5 * 20) // Reasonable limit
+      });
     }
   }
 }));

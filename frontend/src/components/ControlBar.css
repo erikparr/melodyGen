@@ -1,4 +1,7 @@
 .control-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -6,6 +9,8 @@
   background: #151515;
   border-bottom: 1px solid #333;
   min-height: 60px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .control-bar-section {

@@ -1,0 +1,136 @@
+oscSender.js:66 🎵 Sending OSC message to layer 1
+oscSender.js:67 OSC payload: {
+  "notes": [
+    {
+      "midi": 89,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 84,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 81,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 77,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 89,
+      "vel": 0.7,
+      "dur": 1
+    }
+  ],
+  "metadata": {
+    "totalDuration": 3,
+    "noteCount": 5,
+    "name": "Original",
+    "loop": false,
+    "key": "C",
+    "scale": "major"
+  }
+}
+:8000/osc/send-melody:1  Failed to load resource: net::ERR_EMPTY_RESPONSE
+hook.js:608 OSC send error: TypeError: Failed to fetch
+    at sendMelodyToLayer (oscSender.js:73:28)
+    at playCurrent (useSequencer.js:107:13)
+    at useSequencer.js:118:7
+    at Object.react_stack_bottom_frame (react-dom_client.js?v=3ae79311:18565:20)
+    at runWithFiberInDEV (react-dom_client.js?v=3ae79311:995:72)
+    at commitHookEffectListMount (react-dom_client.js?v=3ae79311:9409:163)
+    at commitHookPassiveMountEffects (react-dom_client.js?v=3ae79311:9463:60)
+    at commitPassiveMountOnFiber (react-dom_client.js?v=3ae79311:11038:29)
+    at recursivelyTraversePassiveMountEffects (react-dom_client.js?v=3ae79311:11008:13)
+    at commitPassiveMountOnFiber (react-dom_client.js?v=3ae79311:11199:13)
+overrideMethod @ hook.js:608
+hook.js:608 Failed to send melody: TypeError: Failed to fetch
+    at sendMelodyToLayer (oscSender.js:73:28)
+    at playCurrent (useSequencer.js:107:13)
+    at useSequencer.js:118:7
+    at Object.react_stack_bottom_frame (react-dom_client.js?v=3ae79311:18565:20)
+    at runWithFiberInDEV (react-dom_client.js?v=3ae79311:995:72)
+    at commitHookEffectListMount (react-dom_client.js?v=3ae79311:9409:163)
+    at commitHookPassiveMountEffects (react-dom_client.js?v=3ae79311:9463:60)
+    at commitPassiveMountOnFiber (react-dom_client.js?v=3ae79311:11038:29)
+    at recursivelyTraversePassiveMountEffects (react-dom_client.js?v=3ae79311:11008:13)
+    at commitPassiveMountOnFiber (react-dom_client.js?v=3ae79311:11199:13)
+overrideMethod @ hook.js:608
+useSequencer.js:57 WebSocket connection to 'ws://localhost:8000/ws/completions' failed: 
+(anonymous) @ useSequencer.js:57
+hook.js:608 WebSocket error: Event
+overrideMethod @ hook.js:608
+useSequencer.js:77 🔌 Disconnected from completion WebSocket
+oscSender.js:66 🎵 Sending OSC message to layer 1
+oscSender.js:67 OSC payload: {
+  "notes": [
+    {
+      "midi": 89,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 84,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 81,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 77,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 89,
+      "vel": 0.7,
+      "dur": 1
+    }
+  ],
+  "metadata": {
+    "totalDuration": 3,
+    "noteCount": 5,
+    "name": "Original",
+    "loop": false,
+    "key": "C",
+    "scale": "major"
+  }
+}
+useSequencer.js:57 WebSocket connection to 'ws://localhost:8000/ws/completions' failed: 
+(anonymous) @ useSequencer.js:57
+hook.js:608 WebSocket error: Event
+overrideMethod @ hook.js:608
+useSequencer.js:77 🔌 Disconnected from completion WebSocket
+:8000/osc/send-melody:1  Failed to load resource: net::ERR_EMPTY_RESPONSE
+hook.js:608 OSC send error: TypeError: Failed to fetch
+    at sendMelodyToLayer (oscSender.js:73:28)
+    at playCurrent (useSequencer.js:107:13)
+    at useSequencer.js:118:7
+    at Object.react_stack_bottom_frame (react-dom_client.js?v=3ae79311:18565:20)
+    at runWithFiberInDEV (react-dom_client.js?v=3ae79311:995:72)
+    at commitHookEffectListMount (react-dom_client.js?v=3ae79311:9409:163)
+    at commitHookPassiveMountEffects (react-dom_client.js?v=3ae79311:9463:60)
+    at commitPassiveMountOnFiber (react-dom_client.js?v=3ae79311:11038:29)
+    at recursivelyTraversePassiveMountEffects (react-dom_client.js?v=3ae79311:11008:13)
+    at commitPassiveMountOnFiber (react-dom_client.js?v=3ae79311:11199:13)
+overrideMethod @ hook.js:608
+hook.js:608 Failed to send melody: TypeError: Failed to fetch
+    at sendMelodyToLayer (oscSender.js:73:28)
+    at playCurrent (useSequencer.js:107:13)
+    at useSequencer.js:118:7
+    at Object.react_stack_bottom_frame (react-dom_client.js?v=3ae79311:18565:20)
+    at runWithFiberInDEV (react-dom_client.js?v=3ae79311:995:72)
+    at commitHookEffectListMount (react-dom_client.js?v=3ae79311:9409:163)
+    at commitHookPassiveMountEffects (react-dom_client.js?v=3ae79311:9463:60)
+    at commitPassiveMountOnFiber (react-dom_client.js?v=3ae79311:11038:29)
+    at recursivelyTraversePassiveMountEffects (react-dom_client.js?v=3ae79311:11008:13)
+    at commitPassiveMountOnFiber (react-dom_client.js?v=3ae79311:11199:13)
+overrideMethod @ hook.js:608
