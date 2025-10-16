@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import MelodyCard from './MelodyCard';
+import { useMelodyStore } from '../store/melodyStore';
 import { sendMelodyToLayer } from '../utils/oscSender';
 import './Track.css';
 
 export default function Track({ trackId, trackName, melodies, selectedMelodies, onMelodyClick, trackIndex, loop, fixedLayer }) {
   const [sending, setSending] = useState(false);
+  const setPlayingMelody = useMelodyStore((state) => state.setPlayingMelody);
 
   // Get the most recently selected melody for this track
   const getSelectedMelody = () => {
@@ -24,6 +26,9 @@ export default function Track({ trackId, trackName, melodies, selectedMelodies, 
 
     setSending(true);
     try {
+      // Trigger flash animation
+      setPlayingMelody(trackId, selectedMelody.id);
+
       await sendMelodyToLayer(selectedMelody, layer, loop);
       console.log(`Sent ${selectedMelody.name} to layer ${layer} (loop: ${loop})`);
     } catch (error) {
@@ -58,6 +63,8 @@ export default function Track({ trackId, trackName, melodies, selectedMelodies, 
           <MelodyCard
             key={melody.id}
             melody={melody}
+            trackId={trackId}
+            melodyId={melody.id}
             selected={selectedMelodies.some(
               (sel) => sel.trackId === trackId && sel.melodyId === melody.id
             )}

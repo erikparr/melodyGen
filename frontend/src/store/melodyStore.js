@@ -4,7 +4,10 @@ export const useMelodyStore = create((set, get) => ({
   // Data
   tracks: [],
   selectedMelodies: [],
-  loop: false,  // Global loop setting, default OFF
+  activeMelody: null,  // { trackId, melodyId } for the most recently selected/clicked melody
+  playingMelody: null,  // { trackId, melodyId } for the currently playing melody
+  loop: false,  // Global loop setting for individual playback, default OFF
+  sequenceLoop: true,  // Loop the sequence playback, default ON
   importMode: 'single-track',  // 'multi-track' | 'single-track'
   targetLayer: 1,  // For single-track mode: 1, 2, or 3
 
@@ -12,6 +15,19 @@ export const useMelodyStore = create((set, get) => ({
   setTracks: (tracks) => set({ tracks }),
 
   setLoop: (loop) => set({ loop }),
+
+  setSequenceLoop: (sequenceLoop) => set({ sequenceLoop }),
+
+  setPlayingMelody: (trackId, melodyId) => {
+    set({ playingMelody: trackId && melodyId ? { trackId, melodyId } : null });
+
+    // Auto-clear after 100ms
+    if (trackId && melodyId) {
+      setTimeout(() => {
+        set({ playingMelody: null });
+      }, 100);
+    }
+  },
 
   setImportMode: (mode) => set({ importMode: mode }),
 
@@ -49,6 +65,9 @@ export const useMelodyStore = create((set, get) => ({
     } else {
       get().selectMelody(trackId, melodyId);
     }
+
+    // Set as active melody
+    set({ activeMelody: { trackId, melodyId } });
   },
 
   clearSelection: () => set({ selectedMelodies: [] }),
@@ -65,7 +84,7 @@ export const useMelodyStore = create((set, get) => ({
   },
 
   deleteMelodies: () => {
-    const { tracks, selectedMelodies } = get();
+    const { tracks, selectedMelodies, activeMelody } = get();
     const newTracks = tracks.map(track => ({
       ...track,
       melodies: track.melodies.filter(melody =>
@@ -73,7 +92,16 @@ export const useMelodyStore = create((set, get) => ({
       )
     })).filter(track => track.melodies.length > 0);
 
-    set({ tracks: newTracks, selectedMelodies: [] });
+    // Clear active melody if it was deleted
+    const activeMelodyDeleted = activeMelody && selectedMelodies.some(
+      sel => sel.trackId === activeMelody.trackId && sel.melodyId === activeMelody.melodyId
+    );
+
+    set({
+      tracks: newTracks,
+      selectedMelodies: [],
+      activeMelody: activeMelodyDeleted ? null : activeMelody
+    });
   },
 
   moveToNewLayer: () => {
@@ -108,6 +136,87 @@ export const useMelodyStore = create((set, get) => ({
       tracks: [...tracks, newTrack],
       selectedMelodies: newSelection
     });
+  },
+
+  createNewMelody: () => {
+    const { tracks, targetLayer } = get();
+    const timestamp = Date.now();
+
+    // Create new melody object
+    const newMelody = {
+      id: `new_melody_${timestamp}`,
+      name: 'New Melody',
+      notes: [],
+      metadata: {
+        totalDuration: 4.0,
+        noteCount: 0,
+        name: 'New Melody',
+        key: 'C',
+        scale: 'major',
+        durationType: 'absolute',
+        loop: false
+      }
+    };
+
+    let updatedTracks;
+    let trackId;
+
+    if (tracks.length === 0) {
+      // No tracks exist - create one
+      trackId = `track_${timestamp}`;
+      const newTrack = {
+        id: trackId,
+        name: 'Track 1',
+        melodies: [newMelody]
+      };
+      updatedTracks = [newTrack];
+    } else {
+      // Add to first track
+      trackId = tracks[0].id;
+      updatedTracks = tracks.map((track, index) => {
+        if (index === 0) {
+          return {
+            ...track,
+            melodies: [...track.melodies, newMelody]
+          };
+        }
+        return track;
+      });
+    }
+
+    // Set as active and selected
+    set({
+      tracks: updatedTracks,
+      activeMelody: { trackId, melodyId: newMelody.id },
+      selectedMelodies: [{ trackId, melodyId: newMelody.id }]
+    });
+  },
+
+  updateMelodyMetadata: (trackId, melodyId, updates) => {
+    const { tracks } = get();
+
+    const updatedTracks = tracks.map(track => {
+      if (track.id === trackId) {
+        return {
+          ...track,
+          melodies: track.melodies.map(melody => {
+            if (melody.id === melodyId) {
+              return {
+                ...melody,
+                metadata: {
+                  ...melody.metadata,
+                  ...updates
+                }
+              };
+            }
+            return melody;
+          })
+        };
+      }
+      return track;
+    });
+
+    set({ tracks: updatedTracks });
   },
 
   // Load data from JSON

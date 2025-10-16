@@ -23,6 +23,36 @@
   background: #2a2a3a;
 }
 
+.melody-card.playing {
+  animation: flash 0.1s ease-out;
+}
+
+@keyframes flash {
+  0% {
+    border-color: white;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+  }
+  100% {
+    border-color: transparent;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.melody-card.playing.selected {
+  animation: flash-selected 0.1s ease-out;
+}
+
+@keyframes flash-selected {
+  0% {
+    border-color: white;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+  }
+  100% {
+    border-color: #4a9eff;
+    box-shadow: 0 0 20px rgba(74, 158, 255, 0.5);
+  }
+}
+
 .melody-card canvas {
   display: block;
   width: 200px;

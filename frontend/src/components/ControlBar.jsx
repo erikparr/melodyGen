@@ -10,11 +10,15 @@ function ControlBar() {
   const selectedMelodies = useMelodyStore((state) => state.selectedMelodies);
   const loop = useMelodyStore((state) => state.loop);
   const setLoop = useMelodyStore((state) => state.setLoop);
+  const sequenceLoop = useMelodyStore((state) => state.sequenceLoop);
+  const setSequenceLoop = useMelodyStore((state) => state.setSequenceLoop);
+  const setPlayingMelody = useMelodyStore((state) => state.setPlayingMelody);
   const tracks = useMelodyStore((state) => state.tracks);
   const importMode = useMelodyStore((state) => state.importMode);
   const setImportMode = useMelodyStore((state) => state.setImportMode);
   const targetLayer = useMelodyStore((state) => state.targetLayer);
   const setTargetLayer = useMelodyStore((state) => state.setTargetLayer);
+  const createNewMelody = useMelodyStore((state) => state.createNewMelody);
   const [sending, setSending] = useState(false);
 
   // Sequencer hook
@@ -69,6 +73,9 @@ function ControlBar() {
         const melody = track.melodies.find(m => m.id === lastMelodyId);
 
         if (melody) {
+          // Trigger flash animation
+          setPlayingMelody(trackId, lastMelodyId);
+
           promises.push(
             sendMelodyToLayer(melody, layer, loop)
               .then(() => console.log(`Sent ${melody.name} to layer ${layer} (loop: ${loop})`))
@@ -90,6 +97,9 @@ function ControlBar() {
       <div className="control-bar-section">
         <button className="control-button primary" onClick={handleLoadClick}>
           Load Variations
+        </button>
+        <button className="control-button primary" onClick={createNewMelody}>
+          New Melody
         </button>
         <input
           ref={fileInputRef}
@@ -135,28 +145,35 @@ function ControlBar() {
 
       <div className="control-bar-section">
         <button
-          className="control-button loop-toggle"
+          className={`control-button toggle ${loop ? 'active' : ''}`}
           onClick={() => setLoop(!loop)}
-          title={loop ? 'Loop: ON' : 'Loop: OFF'}
+          title={loop ? 'Individual Loop: ON' : 'Individual Loop: OFF'}
         >
-          {loop ? '🔁' : '➡️'}
+          Loop: {loop ? 'ON' : 'OFF'}
         </button>
         <button
           className="control-button action"
           onClick={handlePlayAll}
           disabled={selectedMelodies.length === 0 || sending || sequencer.isPlaying}
         >
-          {sending ? '⏳ Sending...' : `▶ Play All (${selectedMelodies.length})`}
+          {sending ? 'Sending...' : `Play All (${selectedMelodies.length})`}
+        </button>
+        <button
+          className={`control-button toggle ${sequenceLoop ? 'active' : ''}`}
+          onClick={() => setSequenceLoop(!sequenceLoop)}
+          title={sequenceLoop ? 'Sequence Loop: ON' : 'Sequence Loop: OFF'}
+        >
+          Seq Loop: {sequenceLoop ? 'ON' : 'OFF'}
         </button>
         <button
           className="control-button sequencer"
           onClick={sequencer.isPlaying ? sequencer.stop : sequencer.start}
           disabled={selectedMelodies.length === 0}
-          title={sequencer.isPlaying ? 'Stop sequence' : 'Play sequence (one-shot mode)'}
+          title={sequencer.isPlaying ? 'Stop sequence' : (sequenceLoop ? 'Play sequence (looping)' : 'Play sequence (one-shot)')}
         >
           {sequencer.isPlaying
-            ? `⏹ Stop (${sequencer.currentIndex + 1}/${sequencer.playlist.length})`
-            : `⏭ Sequence (${selectedMelodies.length})`
+            ? `Stop (${sequencer.currentIndex + 1}/${sequencer.playlist.length})`
+            : `Sequence (${selectedMelodies.length})`
           }
         </button>
       </div>

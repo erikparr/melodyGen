@@ -4,6 +4,7 @@
   height: 100vh;
   background: #1a1a1a;
   color: #e5e7eb;
+  overflow: hidden;
 }
 
 #root {

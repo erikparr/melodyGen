@@ -1,10 +1,17 @@
 import { useRef, useEffect, useState } from 'react';
+import { useMelodyStore } from '../store/melodyStore';
 import { drawMelodyCard, getNoteAtPosition } from '../utils/midiRenderer';
 import './MelodyCard.css';
 
-export default function MelodyCard({ melody, selected, onClick }) {
+export default function MelodyCard({ melody, selected, onClick, trackId, melodyId }) {
   const canvasRef = useRef(null);
   const [hoveredNote, setHoveredNote] = useState(null);
+  const playingMelody = useMelodyStore((state) => state.playingMelody);
+
+  // Check if this melody is currently playing
+  const isPlaying = playingMelody &&
+    playingMelody.trackId === trackId &&
+    playingMelody.melodyId === melodyId;
 
   const width = 200;
   const height = 100;
@@ -69,7 +76,7 @@ export default function MelodyCard({ melody, selected, onClick }) {
   };
 
   return (
-    <div className={`melody-card ${selected ? 'selected' : ''}`} onClick={onClick}>
+    <div className={`melody-card ${selected ? 'selected' : ''} ${isPlaying ? 'playing' : ''}`} onClick={onClick}>
       <canvas
         ref={canvasRef}
         width={width}

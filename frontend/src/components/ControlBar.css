@@ -70,21 +70,31 @@
   background: #7c3aed;
 }
 
-.control-button.loop-toggle {
-  width: 40px;
-  height: 40px;
-  padding: 0;
+.control-button.toggle {
   background: #374151;
-  color: white;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #9ca3af;
+  border: 1px solid #4b5563;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 100px;
 }
 
-.control-button.loop-toggle:hover:not(:disabled) {
+.control-button.toggle:hover:not(:disabled) {
   background: #4b5563;
-  transform: scale(1.05);
+  border-color: #6b7280;
+}
+
+.control-button.toggle.active {
+  background: #059669;
+  color: white;
+  border-color: #10b981;
+}
+
+.control-button.toggle.active:hover:not(:disabled) {
+  background: #047857;
+  border-color: #059669;
 }
 
 .selection-info {

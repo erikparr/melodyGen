@@ -1,0 +1,109 @@
+oscSender.js:66 🎵 Sending OSC message to layer 1
+oscSender.js:67 OSC payload: {
+  "notes": [
+    {
+      "midi": 65,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 81,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 77,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 65,
+      "vel": 0.7,
+      "dur": 1
+    }
+  ],
+  "metadata": {
+    "totalDuration": 2.5,
+    "noteCount": 4,
+    "name": "Original",
+    "loop": false,
+    "key": "C",
+    "scale": "major"
+  }
+}
+useSequencer.js:90 🔌 Connected to completion WebSocket
+useSequencer.js:132 🎵 Sequencer: Playing Original on layer 1 (1/3)
+useSequencer.js:95 ✅ Received completion event: {layer: 1, timestamp: 1760207834.8499231}
+oscSender.js:66 🎵 Sending OSC message to layer 1
+oscSender.js:67 OSC payload: {
+  "notes": [
+    {
+      "midi": 65,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 82,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 77,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 65,
+      "vel": 0.7,
+      "dur": 1
+    }
+  ],
+  "metadata": {
+    "totalDuration": 2.5,
+    "noteCount": 4,
+    "name": "Original",
+    "loop": false,
+    "key": "C",
+    "scale": "major"
+  }
+}
+useSequencer.js:132 🎵 Sequencer: Playing Original on layer 1 (2/3)
+useSequencer.js:95 ✅ Received completion event: {layer: 1, timestamp: 1760207836.063072}
+oscSender.js:66 🎵 Sending OSC message to layer 1
+oscSender.js:67 OSC payload: {
+  "notes": [
+    {
+      "midi": 61,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 77,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 75,
+      "vel": 0.7,
+      "dur": 0.25
+    },
+    {
+      "midi": 61,
+      "vel": 0.7,
+      "dur": 1
+    }
+  ],
+  "metadata": {
+    "totalDuration": 2.5,
+    "noteCount": 4,
+    "name": "Original",
+    "loop": false,
+    "key": "C",
+    "scale": "major"
+  }
+}
+useSequencer.js:132 🎵 Sequencer: Playing Original on layer 1 (3/3)
+useSequencer.js:95 ✅ Received completion event: {layer: 1, timestamp: 1760207837.281417}
+useSequencer.js:68 ⏹ Sequence complete, stopping
+useSequencer.js:68 ⏹ Sequence complete, stopping
+useSequencer.js:108 🔌 Disconnected from completion WebSocket

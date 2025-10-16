@@ -6,6 +6,7 @@ export function useSequencer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const wsRef = useRef(null);
+  const playNextRef = useRef(null);
 
   const tracks = useMelodyStore((state) => state.tracks);
   const selectedMelodies = useMelodyStore((state) => state.selectedMelodies);
@@ -50,6 +51,33 @@ export function useSequencer() {
 
   const playlist = getPlaylist();
 
+  // Define playNext and keep ref updated
+  const playNext = () => {
+    const { sequenceLoop } = useMelodyStore.getState();
+
+    setCurrentIndex((prev) => {
+      const next = prev + 1;
+
+      if (next >= playlist.length) {
+        // Reached end of playlist
+        if (sequenceLoop) {
+          // Loop back to start
+          return 0;
+        } else {
+          // Stop playing
+          setIsPlaying(false);
+          return 0;
+        }
+      }
+      return next;
+    });
+  };
+
+  // Update ref whenever playNext changes
+  useEffect(() => {
+    playNextRef.current = playNext;
+  });
+
   // Connect to WebSocket for completion events
   useEffect(() => {
     if (!isPlaying) return;
@@ -65,8 +93,10 @@ export function useSequencer() {
       const data = JSON.parse(event.data);
       console.log('✅ Received completion event:', data);
 
-      // Play next melody in sequence
-      playNext();
+      // Play next melody in sequence using ref to get latest function
+      if (playNextRef.current) {
+        playNextRef.current();
+      }
     };
 
     ws.onerror = (error) => {
@@ -84,26 +114,22 @@ export function useSequencer() {
     };
   }, [isPlaying]);
 
-  const playNext = () => {
-    setCurrentIndex((prev) => {
-      const next = prev + 1;
-      if (next >= playlist.length) {
-        // Reached end of playlist
-        setIsPlaying(false);
-        return 0;
-      }
-      return next;
-    });
-  };
-
   const playCurrent = async () => {
-    if (currentIndex >= playlist.length) {
+    if (playlist.length === 0) {
       setIsPlaying(false);
       return;
     }
 
     const item = playlist[currentIndex];
+    if (!item) {
+      setIsPlaying(false);
+      return;
+    }
+
     try {
+      // Set the playing melody to trigger flash animation
+      useMelodyStore.getState().setPlayingMelody(item.trackId, item.melody.id);
+
       await sendMelodyToLayer(item.melody, item.layer, false); // Always one-shot for sequencer
       console.log(`🎵 Sequencer: Playing ${item.melody.name} on layer ${item.layer} (${currentIndex + 1}/${playlist.length})`);
     } catch (error) {
@@ -114,7 +140,7 @@ export function useSequencer() {
 
   // When index changes and we're playing, send the next melody
   useEffect(() => {
-    if (isPlaying && currentIndex < playlist.length) {
+    if (isPlaying && playlist.length > 0) {
       playCurrent();
     }
   }, [currentIndex, isPlaying]);

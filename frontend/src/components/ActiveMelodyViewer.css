@@ -1,0 +1,141 @@
+.active-melody-viewer {
+  position: sticky;
+  bottom: 60px;
+  z-index: 90;
+  background: #0a0a0a;
+  border-top: 1px solid #333;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.active-melody-viewer.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 14px;
+}
+
+.empty-hint {
+  font-size: 12px;
+  color: #444;
+}
+
+.viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #151515;
+  border-bottom: 1px solid #222;
+  flex-shrink: 0;
+}
+
+.melody-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.melody-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.melody-meta {
+  font-size: 12px;
+  color: #888;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.viewer-canvas-container {
+  flex: 1;
+  padding: 12px 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.viewer-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.empty-melody-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #555;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.metadata-editor {
+  padding: 12px 20px;
+  background: #0d0d0d;
+  border-top: 1px solid #222;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.metadata-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.metadata-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.metadata-input,
+.metadata-select {
+  padding: 4px 8px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.metadata-input {
+  width: 70px;
+}
+
+.metadata-select {
+  min-width: 120px;
+}
+
+.metadata-input:focus,
+.metadata-select:focus {
+  border-color: #0066ff;
+}
+
+.metadata-input:hover,
+.metadata-select:hover {
+  border-color: #444;
+}
