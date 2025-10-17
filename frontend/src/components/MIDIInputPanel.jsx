@@ -234,6 +234,20 @@ function MIDIInputPanel({ onRecordingComplete, initialDuration = 4.0 }) {
             </label>
           </div>
 
+          <div className="chord-mode-section">
+            <label className="chord-mode-toggle">
+              <input
+                type="checkbox"
+                checked={recorder.settings.chordMode}
+                onChange={(e) => recorder.updateSettings({ chordMode: e.target.checked })}
+              />
+              <span className="checkbox-label">
+                <strong>Chord Mode</strong>
+                <small>Record simultaneous notes as a single chord</small>
+              </span>
+            </label>
+          </div>
+
           <button
             className="record-button start"
             onClick={toggleRecording}

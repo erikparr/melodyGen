@@ -154,7 +154,8 @@ export const useMelodyStore = create((set, get) => ({
         key: 'C',
         scale: 'major',
         durationType: 'absolute',
-        loop: false
+        loop: false,
+        chordMode: false
       }
     };
 

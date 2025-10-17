@@ -74,12 +74,17 @@ function ActiveMelodyViewer() {
     updateMelodyMetadata(track.id, melody.id, { [field]: value });
   };
 
-  const handleMIDIRecording = (notes) => {
+  const handleMIDIRecording = (notes, recordingSettings = {}) => {
     if (!melodyData) return;
 
     const { track, melody } = melodyData;
     console.log('📝 MIDI recording complete, updating melody with', notes.length, 'notes');
     updateMelodyNotes(track.id, melody.id, notes);
+
+    // Update chordMode metadata if it was set during recording
+    if (recordingSettings.chordMode !== undefined) {
+      updateMelodyMetadata(track.id, melody.id, { chordMode: recordingSettings.chordMode });
+    }
   };
 
   if (!melodyData) {

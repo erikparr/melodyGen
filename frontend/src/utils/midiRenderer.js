@@ -62,26 +62,88 @@ export function drawMelodyCard(canvas, notes, options = {}) {
     }
   }
 
+  // Group notes by time to detect chords (notes at same time)
+  const noteGroups = groupNotesByTime(notes, durations, 0.001);
+
   // Draw notes
-  notes.forEach((note, i) => {
-    const duration = durations[i];
-    const x = (note.time / totalDuration) * width;
-    const y = pitchToY(note.midi, min, max, height);
-    const w = Math.max(2, (duration / totalDuration) * width);
-    const h = Math.max(4, height / pitchRange * 0.8);
+  noteGroups.forEach(group => {
+    const isChord = group.notes.length > 1;
 
-    // Color by velocity
-    const color = velocityToColor(note.velocity || note.vel || 0.7);
+    group.notes.forEach((note, i) => {
+      const duration = group.duration;
+      const x = (group.time / totalDuration) * width;
+      const y = pitchToY(note.midi, min, max, height);
+      const w = Math.max(2, (duration / totalDuration) * width);
+      const h = Math.max(4, height / pitchRange * 0.8);
 
-    // Draw note rectangle
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y - h/2, w, h);
+      // Color by velocity (with chord accent)
+      const color = isChord
+        ? velocityToColor(note.velocity || note.vel || 0.7, true)
+        : velocityToColor(note.velocity || note.vel || 0.7, false);
 
-    // Add subtle border for definition
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
-    ctx.lineWidth = 1;
-    ctx.strokeRect(x, y - h/2, w, h);
+      // Draw note rectangle
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y - h/2, w, h);
+
+      // Add border (stronger for chords)
+      if (isChord) {
+        ctx.strokeStyle = 'rgba(100, 200, 255, 0.6)'; // Blue accent for chords
+        ctx.lineWidth = 2;
+      } else {
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
+        ctx.lineWidth = 1;
+      }
+      ctx.strokeRect(x, y - h/2, w, h);
+    });
+
+    // Draw chord connector line (vertical line through all notes)
+    if (isChord) {
+      const x = (group.time / totalDuration) * width;
+      const topNote = Math.max(...group.notes.map(n => n.midi));
+      const bottomNote = Math.min(...group.notes.map(n => n.midi));
+      const yTop = pitchToY(topNote, min, max, height);
+      const yBottom = pitchToY(bottomNote, min, max, height);
+
+      ctx.strokeStyle = 'rgba(100, 200, 255, 0.3)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x - 2, yTop);
+      ctx.lineTo(x - 2, yBottom);
+      ctx.stroke();
+    }
   });
+}
+
+/**
+ * Group notes that occur at the same time (chords)
+ */
+function groupNotesByTime(notes, durations, threshold = 0.001) {
+  const groups = [];
+  const processed = new Set();
+
+  notes.forEach((note, i) => {
+    if (processed.has(i)) return;
+
+    const group = {
+      time: note.time,
+      duration: durations[i],
+      notes: [note]
+    };
+
+    // Find all notes at the same time
+    for (let j = i + 1; j < notes.length; j++) {
+      if (processed.has(j)) continue;
+      if (Math.abs(notes[j].time - note.time) < threshold) {
+        group.notes.push(notes[j]);
+        processed.add(j);
+      }
+    }
+
+    processed.add(i);
+    groups.push(group);
+  });
+
+  return groups;
 }
 
 /**
@@ -97,11 +159,24 @@ function pitchToY(pitch, minPitch, maxPitch, height) {
  * High velocity = bright red
  * Medium velocity = orange/pink
  * Low velocity = purple/blue
+ * Chords get a cyan/blue tint
  */
-function velocityToColor(velocity) {
+function velocityToColor(velocity, isChord = false) {
   // Normalize velocity to 0-1 if it's in 0-127 range
   const v = velocity > 1 ? velocity / 127 : velocity;
 
+  if (isChord) {
+    // Chord notes: cyan/blue gradient based on velocity
+    if (v >= 0.8) {
+      return `rgba(100, 200, 255, ${0.8 + v * 0.2})`;
+    } else if (v >= 0.5) {
+      return `rgba(120, 180, 255, ${0.7 + v * 0.3})`;
+    } else {
+      return `rgba(140, 160, 255, ${0.6 + v * 0.4})`;
+    }
+  }
+
+  // Regular melody notes
   if (v >= 0.8) {
     // High velocity: bright red
     return `rgba(255, 100, 100, ${0.7 + v * 0.3})`;

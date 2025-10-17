@@ -28,7 +28,8 @@ export function useMIDIRecorder(options = {}) {
     quantizeMode: 'grid', // 'grid' | 'equal'
     bpm: 120,
     quantizeDivision: 16,
-    minNoteDuration: 0.05
+    minNoteDuration: 0.05,
+    chordMode: false
   });
 
   /**
@@ -41,8 +42,8 @@ export function useMIDIRecorder(options = {}) {
 
     const timestamp = performance.now();
 
-    // Melody mode: only one note at a time
-    if (mode === 'melody') {
+    // Melody mode: only one note at a time (no overlaps)
+    if (!settings.chordMode && mode === 'melody') {
       // If a note is already active, ignore this one
       if (activeNotes.current.size > 0) {
         console.log('Melody mode: ignoring overlapping note', midiNote);
@@ -64,7 +65,7 @@ export function useMIDIRecorder(options = {}) {
     });
 
     console.log(`✅ Note ON: ${midiManager.constructor.midiToNoteName(midiNote)} (${midiNote}) vel:${velocity.toFixed(2)}`);
-  }, [mode]);
+  }, [mode, settings.chordMode]);
 
   /**
    * Handle note off event from MIDI
@@ -95,7 +96,18 @@ export function useMIDIRecorder(options = {}) {
     activeNotes.current.delete(midiNote);
 
     console.log(`Note OFF: ${midiManager.constructor.midiToNoteName(midiNote)} duration:${duration.toFixed(0)}ms`);
-  }, []);
+
+    // Chord mode: auto-stop when all notes are released
+    if (settings.chordMode && activeNotes.current.size === 0 && recordedNotes.length > 0) {
+      console.log('🎵 Chord mode: All notes released, auto-stopping...');
+      // Delay slightly to ensure state updates
+      setTimeout(() => {
+        if (isRecordingRef.current) {
+          stopRecording();
+        }
+      }, 50);
+    }
+  }, [settings.chordMode, recordedNotes.length]);
 
   /**
    * Start recording
@@ -175,14 +187,15 @@ export function useMIDIRecorder(options = {}) {
         bpm: settings.bpm,
         quantizeDivision: settings.quantizeDivision,
         minNoteDuration: settings.minNoteDuration,
-        normalizeVelocity: false
+        normalizeVelocity: false,
+        chordMode: settings.chordMode
       });
 
       console.log(`✅ Recording complete: ${recordedNotes.length} notes recorded, ${processed.length} after processing`);
 
-      // Call completion callback
+      // Call completion callback with notes and settings
       if (onRecordingComplete && processed.length > 0) {
-        onRecordingComplete(processed);
+        onRecordingComplete(processed, { chordMode: settings.chordMode });
       }
 
       // Clear recorded notes after processing

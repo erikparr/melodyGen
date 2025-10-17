@@ -35,7 +35,8 @@ This document specifies the OSC message protocol between the MelodyGen web app a
     "name": "Original",
     "key": "C",
     "scale": "major",
-    "loop": true
+    "loop": true,
+    "chordMode": false
   }
 }
 ```
@@ -56,6 +57,9 @@ This document specifies the OSC message protocol between the MelodyGen web app a
 - `loop` (boolean): **IMPORTANT** - Controls playback mode
   - `true`: Loop melody continuously (DO NOT send completion message)
   - `false`: Play once and send completion message when done
+- `chordMode` (boolean, optional): Indicates if notes are chords (simultaneous notes)
+  - `true`: Notes with same time should be played as a chord
+  - `false`: Sequential melody playback (default)
 
 ## 2. Completion Notifications (SuperCollider → Web App)
 

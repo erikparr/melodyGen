@@ -313,3 +313,45 @@
   background: #444;
   border-color: #666;
 }
+
+/* Chord Mode Section */
+.chord-mode-section {
+  margin-top: 12px;
+  padding: 12px;
+  background: #1a1a2a;
+  border: 1px solid #333366;
+  border-radius: 6px;
+}
+
+.chord-mode-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chord-mode-toggle input[type="checkbox"] {
+  margin-top: 2px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.checkbox-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.checkbox-label strong {
+  font-size: 13px;
+  color: #aaaaff;
+}
+
+.checkbox-label small {
+  font-size: 11px;
+  color: #888;
+  font-weight: normal;
+}

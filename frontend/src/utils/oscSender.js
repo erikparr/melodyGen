@@ -27,13 +27,16 @@ export function convertToOSCFormat(melody, loop = false) {
     loop: loop
   };
 
-  // Add key/scale if available
+  // Add key/scale/chordMode if available
   if (melody.metadata) {
     if (melody.metadata.key) {
       metadata.key = melody.metadata.key;
     }
     if (melody.metadata.scale) {
       metadata.scale = melody.metadata.scale;
+    }
+    if (melody.metadata.chordMode !== undefined) {
+      metadata.chordMode = melody.metadata.chordMode;
     }
   }
 

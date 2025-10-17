@@ -169,6 +169,65 @@ export function removeOverlaps(notes) {
 }
 
 /**
+ * Group notes into chords based on time proximity
+ * @param {Array} notes - Notes to group
+ * @param {number} timeThreshold - Max time difference (seconds) to consider notes simultaneous
+ * @returns {Array} Notes with normalized chord timing
+ */
+export function groupNotesIntoChords(notes, timeThreshold = 0.05) {
+  if (!notes || notes.length === 0) {
+    return [];
+  }
+
+  // Sort by time
+  const sorted = [...notes].sort((a, b) => a.time - b.time);
+
+  const chords = [];
+  let currentChord = [sorted[0]];
+
+  for (let i = 1; i < sorted.length; i++) {
+    const timeDiff = sorted[i].time - currentChord[0].time;
+
+    if (timeDiff < timeThreshold) {
+      // Part of same chord
+      currentChord.push(sorted[i]);
+    } else {
+      // New chord - normalize and save previous
+      chords.push(normalizeChord(currentChord));
+      currentChord = [sorted[i]];
+    }
+  }
+
+  // Don't forget last chord
+  chords.push(normalizeChord(currentChord));
+
+  return chords.flat();
+}
+
+/**
+ * Normalize chord notes to have same time and duration
+ * @param {Array} chordNotes - Notes in the chord
+ * @returns {Array} Normalized chord notes
+ */
+function normalizeChord(chordNotes) {
+  if (!chordNotes || chordNotes.length === 0) {
+    return [];
+  }
+
+  // Use earliest time as chord time
+  const chordTime = Math.min(...chordNotes.map(n => n.time));
+
+  // Use longest duration as chord duration
+  const chordDuration = Math.max(...chordNotes.map(n => n.duration));
+
+  return chordNotes.map(note => ({
+    ...note,
+    time: chordTime,
+    duration: chordDuration
+  }));
+}
+
+/**
  * Full processing pipeline for recorded notes
  * @param {Array} recordedNotes - Raw recorded notes
  * @param {Object} settings - Processing settings
@@ -181,7 +240,8 @@ export function processRecording(recordedNotes, settings = {}) {
     quantizeDivision = 16,
     totalDuration = 4.0,
     normalizeVelocity = false,
-    minNoteDuration = 0.05
+    minNoteDuration = 0.05,
+    chordMode = false
   } = settings;
 
   if (!recordedNotes || recordedNotes.length === 0) {
@@ -200,8 +260,14 @@ export function processRecording(recordedNotes, settings = {}) {
   // Merge very short notes
   processed = mergeShortNotes(processed, minNoteDuration);
 
-  // Remove overlaps
-  processed = removeOverlaps(processed);
+  // Chord mode: group simultaneous notes
+  if (chordMode) {
+    processed = groupNotesIntoChords(processed);
+    console.log('🎹 Chord mode: Grouped notes into chords');
+  } else {
+    // Melody mode: remove overlaps
+    processed = removeOverlaps(processed);
+  }
 
   // Normalize velocities if requested
   if (normalizeVelocity) {
