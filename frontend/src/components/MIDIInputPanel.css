@@ -1,0 +1,315 @@
+.midi-input-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #0d0d0d;
+  border-radius: 6px;
+  border: 1px solid #222;
+}
+
+.midi-input-panel.recording {
+  background: #1a0f0f;
+  border-color: #662222;
+}
+
+/* Header */
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #222;
+}
+
+.panel-icon {
+  font-size: 18px;
+}
+
+.panel-title {
+  flex: 1;
+}
+
+/* Recording Header */
+.recording-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #442;
+}
+
+.recording-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff3333;
+  box-shadow: 0 0 12px #ff3333;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.recording-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ff6666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Recording Info */
+.recording-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: #0a0a0a;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #aaa;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.last-note,
+.note-count,
+.elapsed-time {
+  display: flex;
+  justify-content: space-between;
+}
+
+.last-note strong,
+.note-count strong,
+.elapsed-time strong {
+  color: #fff;
+}
+
+/* Device Section */
+.device-section {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.device-label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.device-select {
+  padding: 6px 10px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 13px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  outline: none;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.device-select:hover {
+  border-color: #444;
+}
+
+.device-select:focus {
+  border-color: #0066ff;
+}
+
+.refresh-button {
+  padding: 6px 12px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #aaa;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.refresh-button:hover {
+  background: #222;
+  border-color: #444;
+  color: #fff;
+}
+
+/* Settings Section */
+.settings-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 8px;
+  background: #0a0a0a;
+  border-radius: 4px;
+}
+
+.setting-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 11px;
+  color: #888;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.setting-label.mode-toggle {
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 12px;
+}
+
+.setting-label.mode-toggle input {
+  margin: 0;
+}
+
+.setting-select,
+.setting-input {
+  padding: 5px 8px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.setting-select:focus,
+.setting-input:focus {
+  border-color: #0066ff;
+}
+
+.setting-input {
+  width: 70px;
+}
+
+/* Record Button */
+.record-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  outline: none;
+}
+
+.record-button.start {
+  background: #ff3333;
+  color: #fff;
+}
+
+.record-button.start:hover {
+  background: #ff4444;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 51, 51, 0.3);
+}
+
+.record-button.start:active {
+  transform: translateY(0);
+}
+
+.record-button.stop {
+  background: #444;
+  color: #fff;
+}
+
+.record-button.stop:hover {
+  background: #555;
+}
+
+/* Status Text */
+.status-text {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  padding: 8px;
+}
+
+/* No Devices */
+.no-devices {
+  padding: 16px;
+  background: #1a1a0a;
+  border: 1px dashed #444;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+}
+
+/* Error States */
+.midi-error {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: #1a1a0a;
+  border: 1px solid #442200;
+  border-radius: 6px;
+}
+
+.error-icon {
+  font-size: 32px;
+}
+
+.error-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.error-text strong {
+  font-size: 14px;
+  color: #ffaa66;
+}
+
+.error-text p {
+  margin: 0;
+  font-size: 12px;
+  color: #888;
+}
+
+.retry-button {
+  padding: 8px 16px;
+  background: #333;
+  border: 1px solid #555;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+.retry-button:hover {
+  background: #444;
+  border-color: #666;
+}

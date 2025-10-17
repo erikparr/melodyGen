@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useMelodyStore } from '../store/melodyStore';
 import { drawMelodyCard } from '../utils/midiRenderer';
+import MIDIInputPanel from './MIDIInputPanel';
 import './ActiveMelodyViewer.css';
 
 // Available scales for dropdown
@@ -19,6 +20,7 @@ function ActiveMelodyViewer() {
   const activeMelody = useMelodyStore((state) => state.activeMelody);
   const tracks = useMelodyStore((state) => state.tracks);
   const updateMelodyMetadata = useMelodyStore((state) => state.updateMelodyMetadata);
+  const updateMelodyNotes = useMelodyStore((state) => state.updateMelodyNotes);
 
   // Get the active melody data
   const getMelodyData = () => {
@@ -72,6 +74,14 @@ function ActiveMelodyViewer() {
     updateMelodyMetadata(track.id, melody.id, { [field]: value });
   };
 
+  const handleMIDIRecording = (notes) => {
+    if (!melodyData) return;
+
+    const { track, melody } = melodyData;
+    console.log('📝 MIDI recording complete, updating melody with', notes.length, 'notes');
+    updateMelodyNotes(track.id, melody.id, notes);
+  };
+
   if (!melodyData) {
     return (
       <div className="active-melody-viewer empty">
@@ -104,9 +114,10 @@ function ActiveMelodyViewer() {
 
       <div className="viewer-canvas-container">
         {noteCount === 0 ? (
-          <div className="empty-melody-notice">
-            Empty melody (0 notes)
-          </div>
+          <MIDIInputPanel
+            onRecordingComplete={handleMIDIRecording}
+            initialDuration={duration}
+          />
         ) : (
           <canvas
             ref={canvasRef}

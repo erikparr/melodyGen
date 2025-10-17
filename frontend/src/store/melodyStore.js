@@ -219,6 +219,40 @@ export const useMelodyStore = create((set, get) => ({
     set({ tracks: updatedTracks });
   },
 
+  updateMelodyNotes: (trackId, melodyId, notes) => {
+    const { tracks } = get();
+
+    const updatedTracks = tracks.map(track => {
+      if (track.id === trackId) {
+        return {
+          ...track,
+          melodies: track.melodies.map(melody => {
+            if (melody.id === melodyId) {
+              // Calculate total duration from notes
+              const totalDuration = notes.length > 0
+                ? Math.max(...notes.map(n => (n.time || 0) + (n.duration || 0)))
+                : (melody.metadata?.totalDuration || 0);
+
+              return {
+                ...melody,
+                notes: notes,
+                metadata: {
+                  ...melody.metadata,
+                  noteCount: notes.length,
+                  totalDuration: totalDuration
+                }
+              };
+            }
+            return melody;
+          })
+        };
+      }
+      return track;
+    });
+
+    set({ tracks: updatedTracks });
+  },
+
   // Load data from JSON
   loadFromJSON: (jsonData) => {
     const { importMode, targetLayer } = get();
