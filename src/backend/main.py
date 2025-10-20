@@ -9,14 +9,20 @@ import tempfile
 import os
 import threading
 import asyncio
-from pythonosc import udp_client, dispatcher, osc_server
+from pythonosc import dispatcher, osc_server
 
 from transformations import MusicTransformer
 from variations import VariationGenerator
 from interpolate import MelodyInterpolator
 from constraints import MelodyValidator
+from services import OSCService, LoopManager, EventBroadcaster
 
 app = FastAPI(title="MelodyGen API", version="1.0.0")
+
+# Initialize services
+osc_service = OSCService()
+loop_manager = LoopManager()
+event_broadcaster = EventBroadcaster()
 
 app.add_middleware(
     CORSMiddleware,
@@ -30,68 +36,39 @@ app.add_middleware(
 @app.on_event("startup")
 async def startup_event():
     """Start background tasks on app startup."""
-    asyncio.create_task(broadcast_pending_events())
+    asyncio.create_task(event_broadcaster.broadcast_pending_events())
     print("📡 Started WebSocket broadcast task")
 
-# OSC client for sending to SuperCollider
-osc_client = udp_client.SimpleUDPClient("127.0.0.1", 7000)
-
-# Store completion events for polling
-completion_events = []
-
-# WebSocket connections and pending events
-active_websockets: Set[WebSocket] = set()
-pending_events = []
-
 # OSC message handler for melody completion
-def handle_melody_complete(address, layer_number):
+def handle_melody_complete(address, *args):
     """
     Handle OSC completion message from SuperCollider.
-    Expected: /liveMelody/complete [layer_number]
+    Expected: /melody/complete [targetGroup] or /chord/complete [targetGroup]
+    Accepts variable arguments since SuperCollider may send additional data.
     """
-    print(f"✅ Melody completed on layer {layer_number}")
+    if len(args) == 0:
+        print(f"⚠️ Warning: No arguments received for {address}")
+        return
+
+    # First argument should be targetGroup (track number)
+    target_group = args[0]
+    print(f"✅ Completion received - Address: {address}, targetGroup: {target_group} (args: {args})")
+
+    # Check if this targetGroup has a looping melody
+    loop_data = loop_manager.get_loop(target_group)
+    if loop_data:
+        print(f"🔁 Re-triggering loop for targetGroup {target_group}")
+        osc_service.resend_message(loop_data["address"], loop_data["payload"])
 
     # Store the completion event
-    event = {
-        "layer": layer_number,
-        "timestamp": __import__('time').time()
-    }
-    completion_events.append(event)
-    pending_events.append(event)
-
-    # Keep only last 100 events to prevent memory leak
-    if len(completion_events) > 100:
-        completion_events.pop(0)
-
-# Background task to broadcast pending events
-async def broadcast_pending_events():
-    """Continuously broadcast pending events to WebSocket clients."""
-    while True:
-        if pending_events and active_websockets:
-            # Get all pending events
-            events_to_send = pending_events.copy()
-            pending_events.clear()
-
-            # Broadcast to all connected clients
-            disconnected = set()
-            for event in events_to_send:
-                for websocket in list(active_websockets):
-                    try:
-                        await websocket.send_json(event)
-                    except Exception as e:
-                        print(f"WebSocket send error: {e}")
-                        disconnected.add(websocket)
-
-            # Remove disconnected clients
-            active_websockets.difference_update(disconnected)
-
-        await asyncio.sleep(0.01)  # Check every 10ms
+    event_broadcaster.add_event(target_group)
 
 # Setup OSC server to receive messages from SuperCollider
 def start_osc_server():
     """Start OSC server in background thread to listen for completion messages."""
     disp = dispatcher.Dispatcher()
-    disp.map("/liveMelody/complete", handle_melody_complete)
+    disp.map("/melody/complete", handle_melody_complete)
+    disp.map("/chord/complete", handle_melody_complete)  # Also handle chord completions
 
     server = osc_server.ThreadingOSCUDPServer(("127.0.0.1", 7001), disp)
     print("🎧 OSC Server listening on 127.0.0.1:7001 for SuperCollider completion messages")
@@ -181,19 +158,11 @@ def get_completion_events(since: Optional[float] = None):
     Returns:
     - events: list of completion events with layer and timestamp
     """
-    if since is None:
-        # Return all events
-        return {
-            "success": True,
-            "events": completion_events
-        }
-    else:
-        # Return only events after the given timestamp
-        filtered = [e for e in completion_events if e["timestamp"] > since]
-        return {
-            "success": True,
-            "events": filtered
-        }
+    events = event_broadcaster.get_events(since)
+    return {
+        "success": True,
+        "events": events
+    }
 
 @app.websocket("/ws/completions")
 async def websocket_completions(websocket: WebSocket):
@@ -204,8 +173,7 @@ async def websocket_completions(websocket: WebSocket):
     as they happen from SuperCollider.
     """
     await websocket.accept()
-    active_websockets.add(websocket)
-    print(f"🔌 WebSocket client connected (total: {len(active_websockets)})")
+    event_broadcaster.add_websocket(websocket)
 
     try:
         # Keep connection alive and wait for client disconnect
@@ -213,8 +181,7 @@ async def websocket_completions(websocket: WebSocket):
             # Just wait for messages (we don't expect any from client)
             await websocket.receive_text()
     except WebSocketDisconnect:
-        active_websockets.discard(websocket)
-        print(f"🔌 WebSocket client disconnected (total: {len(active_websockets)})")
+        event_broadcaster.remove_websocket(websocket)
 
 @app.post("/variation/generate")
 def generate_variations(request: VariationRequest):
@@ -450,37 +417,34 @@ def send_melody_to_supercollider(request: OSCMelodyRequest):
     """
     Send melody to SuperCollider via OSC.
 
-    Sends to /liveMelody/update/layer[1-3] with JSON payload.
-    Format: {notes: [{midi, vel, dur}, ...], metadata: {...}}
+    Routes to /chord if chordMode is true, otherwise /melody.
+    Format: {notes: [{midi, vel, dur}, ...], metadata: {..., targetGroup: 0}}
     """
     try:
-        if request.layer < 1 or request.layer > 3:
-            return {"success": False, "error": "Layer must be 1, 2, or 3"}
+        # Send the melody via OSC service
+        result = osc_service.send_melody(request.notes, request.metadata)
 
-        # Create OSC address (layer is part of the address)
-        osc_address = f"/liveMelody/update/layer{request.layer}"
+        # Handle looping
+        is_loop = request.metadata.get("loop", False)
+        target_group = request.metadata.get("targetGroup", 0)
+        is_chord_mode = request.metadata.get("chordMode", False)
+        osc_address = "/chord" if is_chord_mode else "/melody"
 
-        # Build the OSC payload (notes and metadata at top level)
-        osc_payload = {
-            "notes": request.notes,
-            "metadata": request.metadata
-        }
-
-        # Convert to JSON string
-        json_payload = json.dumps(osc_payload)
-
-        # DEBUG: Print what we're sending
-        print(f"🎵 Sending OSC to {osc_address}")
-        print(f"Payload: {json.dumps(osc_payload, indent=2)}")
-
-        # Send OSC message
-        osc_client.send_message(osc_address, json_payload)
+        if is_loop:
+            # Store for re-triggering when completion received
+            osc_payload = {
+                "notes": request.notes,
+                "metadata": request.metadata
+            }
+            json_payload = json.dumps(osc_payload)
+            loop_manager.add_loop(target_group, osc_address, json_payload)
+        else:
+            # Remove from looping if it was previously looping
+            loop_manager.remove_loop(target_group)
 
         return {
-            "success": True,
-            "layer": request.layer,
-            "address": osc_address,
-            "note_count": len(request.notes)
+            **result,
+            "layer": request.layer  # Keep for backward compatibility
         }
 
     except Exception as e:

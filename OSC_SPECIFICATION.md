@@ -11,9 +11,13 @@ This document specifies the OSC message protocol between the MelodyGen web app a
 
 **Target**: `127.0.0.1:7000`
 
-**OSC Address**: `/liveMelody/update/layer1`, `/liveMelody/update/layer2`, or `/liveMelody/update/layer3`
+**OSC Addresses**:
+- `/melody` - For sequential melodies (chordMode: false or not specified)
+- `/chord` - For chord mode melodies (chordMode: true)
 
-**Argument**: Single JSON string containing:
+**Argument**: Single JSON string (OSC type 's', NOT Symbol 'S')
+
+The JSON payload is sent as an OSC String argument containing:
 
 ```json
 {
@@ -36,7 +40,8 @@ This document specifies the OSC message protocol between the MelodyGen web app a
     "key": "C",
     "scale": "major",
     "loop": true,
-    "chordMode": false
+    "chordMode": false,
+    "targetGroup": 0
   }
 }
 ```
@@ -60,14 +65,53 @@ This document specifies the OSC message protocol between the MelodyGen web app a
 - `chordMode` (boolean, optional): Indicates if notes are chords (simultaneous notes)
   - `true`: Notes with same time should be played as a chord
   - `false`: Sequential melody playback (default)
+- `targetGroup` (int): **NEW** - 0-based track index for routing
+  - Track 0 → `targetGroup: 0`
+  - Track 1 → `targetGroup: 1`
+  - Track 2 → `targetGroup: 2`, etc.
+  - Maps to synth groups/busses in SuperCollider
+
+### Routing Behavior
+
+The web app automatically routes messages based on the `chordMode` flag:
+
+**Sequential Melodies** (`chordMode: false` or not specified):
+- Sent to: `/melody`
+- Use case: Traditional melodic sequences where notes play one after another
+
+**Chord Mode** (`chordMode: true`):
+- Sent to: `/chord`
+- Use case: Simultaneous notes recorded as chords
+- Example payload sent to `/chord`:
+```json
+{
+  "notes": [
+    {"midi": 66, "vel": 0.28, "dur": 0.625},
+    {"midi": 54, "vel": 0.47, "dur": 0.625},
+    {"midi": 61, "vel": 0.59, "dur": 0.5}
+  ],
+  "metadata": {
+    "totalDuration": 1.125,
+    "noteCount": 3,
+    "name": "New Melody",
+    "loop": false,
+    "targetGroup": 0,
+    "key": "C",
+    "scale": "major",
+    "chordMode": true
+  }
+}
+```
 
 ## 2. Completion Notifications (SuperCollider → Web App)
 
 **Target**: `127.0.0.1:7001`
 
-**OSC Address**: `/liveMelody/complete`
+**OSC Addresses**:
+- `/melody/complete` - Sent when sequential melody finishes (loop: false)
+- `/chord/complete` - Sent when chord mode melody finishes (loop: false)
 
-**Argument**: Single integer - layer number (1, 2, or 3)
+**Argument**: Single integer - targetGroup (0-based track index)
 
 ### When to Send
 
@@ -82,9 +126,10 @@ This document specifies the OSC message protocol between the MelodyGen web app a
 ### Examples
 
 ```
-/liveMelody/complete 1    // Layer 1 finished playing one-shot melody
-/liveMelody/complete 2    // Layer 2 finished playing one-shot melody
-/liveMelody/complete 3    // Layer 3 finished playing one-shot melody
+/melody/complete 0    // targetGroup 0 finished playing one-shot melody
+/melody/complete 1    // targetGroup 1 finished playing one-shot melody
+/chord/complete 0     // targetGroup 0 finished playing one-shot chord
+/chord/complete 2     // targetGroup 2 finished playing one-shot chord
 ```
 
 ## 3. Use Cases
@@ -114,7 +159,7 @@ This document specifies the OSC message protocol between the MelodyGen web app a
 }
 ```
 - Melody plays once
-- SuperCollider sends `/liveMelody/complete [layer]` when done
+- SuperCollider sends `/melody/complete [targetGroup]` when done
 - Web app can trigger next action (e.g., play next in sequence)
 
 ### Sequencer Mode
@@ -129,14 +174,14 @@ You can test the OSC receiver using Python:
 ```python
 from pythonosc import udp_client
 
-# Send completion message for layer 1
+# Send completion message for targetGroup 0
 client = udp_client.SimpleUDPClient('127.0.0.1', 7001)
-client.send_message('/liveMelody/complete', 1)
+client.send_message('/melody/complete', 0)
 ```
 
 The web app backend will log:
 ```
-✅ Melody completed on layer 1
+✅ Melody completed on targetGroup 0
 ```
 
 ## 5. Implementation Notes
@@ -152,9 +197,9 @@ The web app backend will log:
 
 ### Debug Logging
 The web app logs all OSC messages:
-- Browser console: Shows JSON payload before sending
+- Browser console: Shows JSON payload with targetGroup before sending
 - Backend console: Shows full message with address and payload
-- Completion events: Shows layer number when received
+- Completion events: Shows targetGroup when received
 
 ## 6. Port Summary
 
