@@ -8,6 +8,7 @@ export const useMelodyStore = create((set, get) => ({
   playingMelody: null,  // { trackId, melodyId } for the currently playing melody
   loop: false,  // Global loop setting for individual playback, default OFF
   sequenceLoop: true,  // Loop the sequence playback, default ON
+  playbackMode: 'sequential',  // 'sequential' | 'simultaneous'
   importMode: 'single-track',  // 'multi-track' | 'single-track'
   targetLayer: 1,  // For single-track mode: 1, 2, or 3
 
@@ -17,6 +18,8 @@ export const useMelodyStore = create((set, get) => ({
   setLoop: (loop) => set({ loop }),
 
   setSequenceLoop: (sequenceLoop) => set({ sequenceLoop }),
+
+  setPlaybackMode: (mode) => set({ playbackMode: mode }),
 
   setPlayingMelody: (trackId, melodyId) => {
     set({ playingMelody: trackId && melodyId ? { trackId, melodyId } : null });
@@ -123,11 +126,15 @@ export const useMelodyStore = create((set, get) => ({
 
     // Create new track with selected melodies
     const newTrackId = `layer-${targetLayer}-${Date.now()}`;
+    // Determine oscType from first melody
+    const oscType = melodies[0]?.metadata?.chordMode ? 'chord' : 'melody';
     const newTrack = {
       id: newTrackId,
       name: `Layer ${targetLayer} (Moved)`,
       melodies: melodies,
-      fixedLayer: targetLayer
+      fixedLayer: targetLayer,
+      targetGroup: tracks.length,  // Default to next available position
+      oscType: oscType
     };
 
     // Add new track and select its melodies
@@ -139,7 +146,7 @@ export const useMelodyStore = create((set, get) => ({
   },
 
   createNewMelody: () => {
-    const { tracks, targetLayer } = get();
+    const { tracks } = get();
     const timestamp = Date.now();
 
     // Create new melody object
@@ -168,7 +175,9 @@ export const useMelodyStore = create((set, get) => ({
       const newTrack = {
         id: trackId,
         name: 'Track 1',
-        melodies: [newMelody]
+        melodies: [newMelody],
+        targetGroup: 0,  // First track defaults to target 0
+        oscType: 'melody'  // Default to melody type
       };
       updatedTracks = [newTrack];
     } else {
@@ -254,6 +263,17 @@ export const useMelodyStore = create((set, get) => ({
     set({ tracks: updatedTracks });
   },
 
+  setTrackTargetGroup: (trackId, targetGroup) => {
+    const { tracks } = get();
+    const updatedTracks = tracks.map(track => {
+      if (track.id === trackId) {
+        return { ...track, targetGroup };
+      }
+      return track;
+    });
+    set({ tracks: updatedTracks });
+  },
+
   // Load data from JSON
   loadFromJSON: (jsonData) => {
     const { importMode, targetLayer } = get();
@@ -305,10 +325,14 @@ export const useMelodyStore = create((set, get) => ({
           // Multi-track mode: each melody gets its own track
           if (melodies.length > 0) {
             const trackId = melodyName;
+            // Determine oscType from first melody's chordMode
+            const oscType = melodies[0]?.metadata?.chordMode ? 'chord' : 'melody';
             tracks.push({
               id: trackId,
               name: melodyName,
-              melodies
+              melodies,
+              targetGroup: tracks.length,  // Default to position
+              oscType: oscType  // 'melody' or 'chord'
             });
             // Select all melodies in this track
             melodies.forEach(melody => {
@@ -322,11 +346,15 @@ export const useMelodyStore = create((set, get) => ({
     if (importMode === 'single-track' && allMelodies.length > 0) {
       // Create one track with all melodies
       const trackId = 'merged-track';
+      // Determine oscType from first melody
+      const oscType = allMelodies[0]?.metadata?.chordMode ? 'chord' : 'melody';
       const newTrack = {
         id: trackId,
         name: `All Melodies (Layer ${targetLayer})`,
         melodies: allMelodies,
-        fixedLayer: targetLayer
+        fixedLayer: targetLayer,
+        targetGroup: 0,  // Default to 0 for single track
+        oscType: oscType
       };
       // Select all melodies in single track
       allMelodies.forEach(melody => {
@@ -338,8 +366,15 @@ export const useMelodyStore = create((set, get) => ({
       });
     } else {
       // Multi-track mode: limit to 5 tracks max
+      // Ensure all tracks have targetGroup and oscType
+      const tracksWithTargetGroup = tracks.slice(0, 5).map((track, index) => ({
+        ...track,
+        targetGroup: track.targetGroup ?? index,
+        oscType: track.oscType ?? (track.melodies[0]?.metadata?.chordMode ? 'chord' : 'melody')
+      }));
+
       set({
-        tracks: tracks.slice(0, 5),
+        tracks: tracksWithTargetGroup,
         selectedMelodies: selectedMelodies.slice(0, 5 * 20) // Reasonable limit
       });
     }

@@ -153,3 +153,60 @@
 .layer-select:hover {
   background: #4b5563;
 }
+
+/* Mode Toggle */
+.mode-toggle {
+  display: flex;
+  gap: 0;
+  border: 1px solid #4b5563;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-right: 16px;
+}
+
+.mode-toggle button {
+  padding: 8px 16px;
+  background: #1a1a1a;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.mode-toggle button:hover {
+  background: #2a2a2a;
+  color: #aaa;
+}
+
+.mode-toggle button.active {
+  background: #2563eb;
+  color: white;
+}
+
+.mode-toggle button.active:hover {
+  background: #1d4ed8;
+}
+
+/* Multi-track specific buttons */
+.control-button.multi-track-play {
+  background: #10b981;
+  color: white;
+  font-weight: 600;
+}
+
+.control-button.multi-track-play:hover:not(:disabled) {
+  background: #059669;
+}
+
+.control-button.stop {
+  background: #ef4444;
+  color: white;
+}
+
+.control-button.stop:hover:not(:disabled) {
+  background: #dc2626;
+}

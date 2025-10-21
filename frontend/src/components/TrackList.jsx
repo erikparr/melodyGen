@@ -22,6 +22,7 @@ function TrackList() {
       {tracks.map((track, index) => (
         <Track
           key={track.id}
+          track={track}
           trackId={track.id}
           trackName={track.name}
           trackIndex={index}

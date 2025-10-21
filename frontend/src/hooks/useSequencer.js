@@ -31,7 +31,9 @@ export function useSequencer() {
       if (!track) return;
 
       const trackIndex = tracks.indexOf(track);
-      const layer = ((trackIndex) % 3) + 1;
+      const layer = track.fixedLayer || ((trackIndex) % 3) + 1;
+      const targetGroup = track.targetGroup ?? trackIndex;
+      const oscType = track.oscType || 'melody';
 
       melodyIds.forEach(melodyId => {
         const melody = track.melodies.find(m => m.id === melodyId);
@@ -39,6 +41,8 @@ export function useSequencer() {
           playlist.push({
             melody,
             layer,
+            targetGroup,
+            oscType,
             trackId,
             trackName: track.name
           });
@@ -130,8 +134,8 @@ export function useSequencer() {
       // Set the playing melody to trigger flash animation
       useMelodyStore.getState().setPlayingMelody(item.trackId, item.melody.id);
 
-      await sendMelodyToLayer(item.melody, item.layer, false); // Always one-shot for sequencer
-      console.log(`🎵 Sequencer: Playing ${item.melody.name} on layer ${item.layer} (${currentIndex + 1}/${playlist.length})`);
+      await sendMelodyToLayer(item.melody, item.layer, false, item.targetGroup, item.oscType);
+      console.log(`🎵 Sequencer: Playing ${item.melody.name} on ${item.oscType} targetGroup ${item.targetGroup} (layer ${item.layer}) (${currentIndex + 1}/${playlist.length})`);
     } catch (error) {
       console.error('Failed to send melody:', error);
       setIsPlaying(false);

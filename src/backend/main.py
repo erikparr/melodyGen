@@ -52,13 +52,17 @@ def handle_melody_complete(address, *args):
 
     # First argument should be targetGroup (track number)
     target_group = args[0]
-    print(f"✅ Completion received - Address: {address}, targetGroup: {target_group} (args: {args})")
 
-    # Check if this targetGroup has a looping melody
-    loop_data = loop_manager.get_loop(target_group)
+    # Extract base OSC address: "/melody/complete" → "/melody", "/chord/complete" → "/chord"
+    osc_address = address.replace("/complete", "")
+
+    print(f"✅ Completion: {address}, targetGroup: {target_group}")
+
+    # Check if this specific (targetGroup, oscAddress) combination is looping
+    loop_data = loop_manager.get_loop(target_group, osc_address)
     if loop_data:
-        print(f"🔁 Re-triggering loop for targetGroup {target_group}")
-        osc_service.resend_message(loop_data["address"], loop_data["payload"])
+        print(f"🔁 Re-triggering {osc_address} for targetGroup {target_group}")
+        osc_service.resend_message(osc_address, loop_data["payload"])
 
     # Store the completion event
     event_broadcaster.add_event(target_group)
@@ -447,6 +451,53 @@ def send_melody_to_supercollider(request: OSCMelodyRequest):
             "layer": request.layer  # Keep for backward compatibility
         }
 
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+@app.post("/osc/stop-track")
+def stop_track(target_group: int):
+    """
+    Stop looping for a specific track.
+
+    Removes all loops (both /melody and /chord) for this targetGroup.
+    The track will complete its current iteration and not retrigger.
+
+    Args:
+        target_group: 0-based track index
+
+    Returns:
+        Success status and targetGroup
+    """
+    try:
+        loop_manager.remove_all_for_target_group(target_group)
+        print(f"⏹ API: Stopping all loops for targetGroup {target_group}")
+
+        return {
+            "success": True,
+            "targetGroup": target_group,
+            "message": f"All loops for targetGroup {target_group} will stop after current iteration"
+        }
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+@app.post("/osc/stop-all")
+def stop_all_tracks():
+    """
+    Stop all looping tracks.
+
+    All tracks will complete their current iterations and not retrigger.
+
+    Returns:
+        Success status and count of stopped tracks
+    """
+    try:
+        loop_manager.clear_all()
+        print("⏹ API: Stopping all tracks")
+
+        return {
+            "success": True,
+            "message": "All tracks will stop after current iteration"
+        }
     except Exception as e:
         return {"success": False, "error": str(e)}
 

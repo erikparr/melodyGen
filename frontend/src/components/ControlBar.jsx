@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useMelodyStore } from '../store/melodyStore';
 import { sendMelodyToLayer } from '../utils/oscSender';
 import { useSequencer } from '../hooks/useSequencer';
+import { useMultiTrackPlayer } from '../hooks/useMultiTrackPlayer';
 import './ControlBar.css';
 
 function ControlBar() {
@@ -19,10 +20,13 @@ function ControlBar() {
   const targetLayer = useMelodyStore((state) => state.targetLayer);
   const setTargetLayer = useMelodyStore((state) => state.setTargetLayer);
   const createNewMelody = useMelodyStore((state) => state.createNewMelody);
+  const playbackMode = useMelodyStore((state) => state.playbackMode);
+  const setPlaybackMode = useMelodyStore((state) => state.setPlaybackMode);
   const [sending, setSending] = useState(false);
 
-  // Sequencer hook
+  // Sequencer and multi-track hooks
   const sequencer = useSequencer();
+  const multiTrack = useMultiTrackPlayer();
 
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
@@ -144,38 +148,80 @@ function ControlBar() {
       </div>
 
       <div className="control-bar-section">
-        <button
-          className={`control-button toggle ${loop ? 'active' : ''}`}
-          onClick={() => setLoop(!loop)}
-          title={loop ? 'Individual Loop: ON' : 'Individual Loop: OFF'}
-        >
-          Loop: {loop ? 'ON' : 'OFF'}
-        </button>
-        <button
-          className="control-button action"
-          onClick={handlePlayAll}
-          disabled={selectedMelodies.length === 0 || sending || sequencer.isPlaying}
-        >
-          {sending ? 'Sending...' : `Play All (${selectedMelodies.length})`}
-        </button>
-        <button
-          className={`control-button toggle ${sequenceLoop ? 'active' : ''}`}
-          onClick={() => setSequenceLoop(!sequenceLoop)}
-          title={sequenceLoop ? 'Sequence Loop: ON' : 'Sequence Loop: OFF'}
-        >
-          Seq Loop: {sequenceLoop ? 'ON' : 'OFF'}
-        </button>
-        <button
-          className="control-button sequencer"
-          onClick={sequencer.isPlaying ? sequencer.stop : sequencer.start}
-          disabled={selectedMelodies.length === 0}
-          title={sequencer.isPlaying ? 'Stop sequence' : (sequenceLoop ? 'Play sequence (looping)' : 'Play sequence (one-shot)')}
-        >
-          {sequencer.isPlaying
-            ? `Stop (${sequencer.currentIndex + 1}/${sequencer.playlist.length})`
-            : `Sequence (${selectedMelodies.length})`
-          }
-        </button>
+        {/* Playback Mode Toggle */}
+        <div className="mode-toggle">
+          <button
+            className={playbackMode === 'sequential' ? 'active' : ''}
+            onClick={() => setPlaybackMode('sequential')}
+            title="Play melodies one after another"
+          >
+            Sequential
+          </button>
+          <button
+            className={playbackMode === 'simultaneous' ? 'active' : ''}
+            onClick={() => setPlaybackMode('simultaneous')}
+            title="Play all tracks simultaneously (multi-track looping)"
+          >
+            Simultaneous
+          </button>
+        </div>
+
+        {/* Conditional Controls based on playback mode */}
+        {playbackMode === 'sequential' ? (
+          <>
+            <button
+              className={`control-button toggle ${loop ? 'active' : ''}`}
+              onClick={() => setLoop(!loop)}
+              title={loop ? 'Individual Loop: ON' : 'Individual Loop: OFF'}
+            >
+              Loop: {loop ? 'ON' : 'OFF'}
+            </button>
+            <button
+              className="control-button action"
+              onClick={handlePlayAll}
+              disabled={selectedMelodies.length === 0 || sending || sequencer.isPlaying}
+            >
+              {sending ? 'Sending...' : `Play All (${selectedMelodies.length})`}
+            </button>
+            <button
+              className={`control-button toggle ${sequenceLoop ? 'active' : ''}`}
+              onClick={() => setSequenceLoop(!sequenceLoop)}
+              title={sequenceLoop ? 'Sequence Loop: ON' : 'Sequence Loop: OFF'}
+            >
+              Seq Loop: {sequenceLoop ? 'ON' : 'OFF'}
+            </button>
+            <button
+              className="control-button sequencer"
+              onClick={sequencer.isPlaying ? sequencer.stop : sequencer.start}
+              disabled={selectedMelodies.length === 0}
+              title={sequencer.isPlaying ? 'Stop sequence' : (sequenceLoop ? 'Play sequence (looping)' : 'Play sequence (one-shot)')}
+            >
+              {sequencer.isPlaying
+                ? `Stop (${sequencer.currentIndex + 1}/${sequencer.playlist.length})`
+                : `Sequence (${selectedMelodies.length})`
+              }
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              className="control-button action multi-track-play"
+              onClick={multiTrack.startAll}
+              disabled={multiTrack.isPlaying || multiTrack.trackCount === 0}
+              title="Play all tracks simultaneously with independent looping"
+            >
+              ▶ Play All Tracks ({multiTrack.trackCount})
+            </button>
+            <button
+              className="control-button stop"
+              onClick={multiTrack.stopAll}
+              disabled={!multiTrack.isPlaying}
+              title="Stop all looping tracks"
+            >
+              ⏹ Stop All
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
