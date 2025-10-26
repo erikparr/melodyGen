@@ -443,8 +443,8 @@ def send_melody_to_supercollider(request: OSCMelodyRequest):
             json_payload = json.dumps(osc_payload)
             loop_manager.add_loop(target_group, osc_address, json_payload)
         else:
-            # Remove from looping if it was previously looping
-            loop_manager.remove_loop(target_group)
+            # Remove from looping if it was previously looping (for this specific address)
+            loop_manager.remove_loop(target_group, osc_address)
 
         return {
             **result,

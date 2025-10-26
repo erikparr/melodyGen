@@ -70,7 +70,9 @@ function ControlBar() {
         if (!track) return;
 
         const trackIndex = tracks.indexOf(track);
-        const layer = ((trackIndex) % 3) + 1;
+        const layer = track.fixedLayer || ((trackIndex) % 3) + 1;
+        const targetGroup = track.targetGroup ?? trackIndex;
+        const oscType = track.oscType || 'melody';
 
         // Get the most recently selected melody for this track
         const lastMelodyId = melodyIds[melodyIds.length - 1];
@@ -81,8 +83,8 @@ function ControlBar() {
           setPlayingMelody(trackId, lastMelodyId);
 
           promises.push(
-            sendMelodyToLayer(melody, layer, loop)
-              .then(() => console.log(`Sent ${melody.name} to layer ${layer} (loop: ${loop})`))
+            sendMelodyToLayer(melody, layer, loop, targetGroup, oscType)
+              .then(() => console.log(`Sent ${melody.name} to ${oscType} targetGroup ${targetGroup} (layer ${layer}, loop: ${loop})`))
           );
         }
       });
@@ -184,6 +186,26 @@ function ControlBar() {
               {sending ? 'Sending...' : `Play All (${selectedMelodies.length})`}
             </button>
             <button
+              className="control-button stop"
+              onClick={async () => {
+                try {
+                  const response = await fetch('http://localhost:8000/osc/stop-all', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                  });
+                  const result = await response.json();
+                  if (result.success) {
+                    console.log('✅ All loops stopped');
+                  }
+                } catch (error) {
+                  console.error('Failed to stop all:', error);
+                }
+              }}
+              title="Stop all looping melodies"
+            >
+              ⏹ Stop All Loops
+            </button>
+            <button
               className={`control-button toggle ${sequenceLoop ? 'active' : ''}`}
               onClick={() => setSequenceLoop(!sequenceLoop)}
               title={sequenceLoop ? 'Sequence Loop: ON' : 'Sequence Loop: OFF'}
@@ -203,24 +225,17 @@ function ControlBar() {
             </button>
           </>
         ) : (
-          <>
-            <button
-              className="control-button action multi-track-play"
-              onClick={multiTrack.startAll}
-              disabled={multiTrack.isPlaying || multiTrack.trackCount === 0}
-              title="Play all tracks simultaneously with independent looping"
-            >
-              ▶ Play All Tracks ({multiTrack.trackCount})
-            </button>
-            <button
-              className="control-button stop"
-              onClick={multiTrack.stopAll}
-              disabled={!multiTrack.isPlaying}
-              title="Stop all looping tracks"
-            >
-              ⏹ Stop All
-            </button>
-          </>
+          <button
+            className={multiTrack.isPlaying ? "control-button stop" : "control-button action multi-track-play"}
+            onClick={multiTrack.isPlaying ? multiTrack.stopAll : multiTrack.startAll}
+            disabled={!multiTrack.isPlaying && multiTrack.trackCount === 0}
+            title={multiTrack.isPlaying ? "Stop all looping tracks" : "Play all tracks simultaneously with independent looping"}
+          >
+            {multiTrack.isPlaying
+              ? '⏹ Stop All'
+              : `▶ Play All Tracks (${multiTrack.trackCount})`
+            }
+          </button>
         )}
       </div>
     </div>
